@@ -55,6 +55,7 @@
           <?php while ($f_silabo = mysqli_fetch_assoc($resultado_sql_consulta_silabo)) { ?>
             <tr>
                 <td><?php echo $f_silabo['IdSilabo']; ?></td>
+                <td><?php echo $f_silabo['Nombre']; ?></td>
                 <td>
                   <a href="Consultas/asignatura_visualizar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-eye"></i></a>
                   <a href="Consultas/asignatura_editar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-edit"></i></a>
