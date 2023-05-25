@@ -36,8 +36,8 @@
       </header>
   </div>
   <div class="container">
-    <a href="asignatura.html">
-      <input type="submit" value="Agregar Nuevo Asignatura" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c"/>
+    <a href="silabo.html">
+      <input type="submit" value="Agregar Nuevo Silabo" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c"/>
     </a>
   </div>
   <div class="container-sm nb-3 table-responsive">
@@ -46,24 +46,19 @@
         <tr>
           <th>ID</th>
           <th>Silabo</th>
-          <th>Opciones</th>
-          
+          <th>Opciones</th>     
         </tr>
       </thead>
       <tbody>
         <tr>
-          <?php include 'Consultas/docente_consultar.php';?>
-          <?php while ($f_docente = mysqli_fetch_assoc($resultado_sql_consulta_docentes)) { ?>
+          <?php include 'Consultas/silabo_consultar.php';?>
+          <?php while ($f_silabo = mysqli_fetch_assoc($resultado_sql_consulta_silabo)) { ?>
             <tr>
-                <td><?php echo $f_docente['IdDocente']; ?></td>
-                <td><?php echo $f_docente['Nombre']; ?></td>
-                <td><?php echo $f_docente['Apellido']; ?></td>
-                <td><?php echo $f_docente['DNI']; ?></td>
-                <td><?php echo $f_docente['Correo']; ?></td>
-                <td><?php echo $f_docente['Tipo']; ?></td>
+                <td><?php echo $f_silabo['IdSilabo']; ?></td>
                 <td>
-                  <a href="Consultas/docente_editar.php?id=<?php echo $f_docente['IdDocente']; ?>"><i class="fas fa-edit"></i></a>
-                  <a href="Consultas/docente_eliminar.php?id=<?php echo $f_docente['IdDocente']; ?>"><i class="fas fa-trash-alt"></i></a>
+                  <a href="Consultas/asignatura_visualizar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-eye"></i></a>
+                  <a href="Consultas/asignatura_editar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-edit"></i></a>
+                  <a href="Consultas/asignatura.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
           <?php } ?>
