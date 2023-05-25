@@ -12,11 +12,11 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_fetch_array($resultado);
 
 if($filas['IdUser']==1){ //administrador
-    header("location:../admin.html");
+    header("location:../silabo.php");
 
 }else
 if($filas['IdUser']==2){ //cliente
-    header("location:../silabo.html");
+    header("location:../silabo.php");
 }
 else{
     ?>
