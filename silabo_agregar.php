@@ -72,28 +72,124 @@
             </select>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="semestre">Semestre:</label>
-            <input type="text" class="form-control" id="semestre" name="semestre"><br>
+          <label class="form-label" for="semestre">Semestre:</label>
+          <input type="text" class="form-control" id="semestre" name="semestre"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="duracion">Duracion:</label>
-            <input type="text" class="form-control" id="duracion" name="duracion"><br>
+          <label class="form-label" for="duracion">Duracion:</label>
+          <input type="text" class="form-control" id="duracion" name="duracion"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="fechini">Fecha de inicio:</label>
-            <input type="text" class="form-control" id="fechini" name="fechini"><br>
+          <label class="form-label" for="fechini">Fecha de inicio:</label>
+          <input type="text" class="form-control" id="fechini" name="fechini"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="fechfin">Fecha de fin:</label>
-            <input type="text" class="form-control" id="fechfin" name="fechfin"><br>
+          <label class="form-label" for="fechfin">Fecha de fin:</label>
+          <input type="text" class="form-control" id="fechfin" name="fechfin"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="locaul">Local y Aula:</label>
-            <input type="text" class="form-control" id="locaul" name="locaul"><br>
+          <label class="form-label" for="locaul">Local y Aula:</label>
+          <input type="text" class="form-control" id="locaul" name="locaul"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="horario">Horario:</label>
-            <input type="text" class="form-control" id="horario" name="horario"><br>
+          <label class="form-label" for="horario">Horario:</label>
+          <input type="text" class="form-control" id="horario" name="horario"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="sumilla">Sumilla:</label>
+          <textarea type="text" class="form-control" id="sumilla" name="sumilla" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="compgen">Competencia General:</label>
+          <textarea type="text" class="form-control" id="compgen" name="compgen" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="compesp">Competencias Especificas:</label>
+          <textarea type="text" class="form-control" id="compesp" name="compesp" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="und1">Unidad 1:</label>
+          <input type="text" class="form-control" id="und1" name="und1"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana1">Temas Semana 1:</label>
+          <textarea type="text" class="form-control" id="semana1" name="semana1" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana2">Temas Semana 2:</label>
+          <textarea type="text" class="form-control" id="semana2" name="semana2" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana3">Temas Semana 3:</label>
+          <textarea type="text" class="form-control" id="semana3" name="semana3" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana4">Temas Semana 4:</label>
+          <textarea type="text" class="form-control" id="semana4" name="semana4" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="und2">Unidad 2:</label>
+          <input type="text" class="form-control" id="und2" name="und2"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana5">Temas Semana 5:</label>
+          <textarea type="text" class="form-control" id="semana5" name="semana5" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana2">Temas Semana 6:</label>
+          <textarea type="text" class="form-control" id="semana6" name="semana6" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana2">Temas Semana 7:</label>
+          <textarea type="text" class="form-control" id="semana7" name="semana7" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana8">Temas Semana 8:</label>
+          <textarea type="text" class="form-control" id="semana8" name="semana8" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="und3">Unidad 3:</label>
+          <input type="text" class="form-control" id="und3" name="und3"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana9">Temas Semana 9:</label>
+          <textarea type="text" class="form-control" id="semana9" name="semana9" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana10">Temas Semana 10:</label>
+          <textarea type="text" class="form-control" id="semana10" name="semana10" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana11">Temas Semana 11:</label>
+          <textarea type="text" class="form-control" id="semana11" name="semana11" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana12">Temas Semana 12:</label>
+          <textarea type="text" class="form-control" id="semana12" name="semana12" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="und4">Unidad 4:</label>
+          <input type="text" class="form-control" id="und4" name="und4"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana13">Temas Semana 13:</label>
+          <textarea type="text" class="form-control" id="semana13" name="semana13" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana14">Temas Semana 14:</label>
+          <textarea type="text" class="form-control" id="semana14" name="semana14" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana15">Temas Semana 15:</label>
+          <textarea type="text" class="form-control" id="semana15" name="semana15" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="semana16">Temas Semana 16:</label>
+          <textarea type="text" class="form-control" id="semana16" name="semana16" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="referencias">Referencias Bibliograficas:</label>
+          <textarea type="text" class="form-control" id="referencias" name="referencias" rows="10" cols="40"></textarea>
         </div>
         <input type="submit" value="Registrar" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c">
     </form> 
