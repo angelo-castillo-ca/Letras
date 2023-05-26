@@ -34,9 +34,9 @@
   </div>
   <div class="container-sm nb-3">
     <h1>Registro de Silabo</h1>
-    <form method="post" action="Consultas/asignatura_registrar.php">
+    <form method="post" action="Consultas/silabo_registrar.php">
         <div class="nb-3">
-          <label class="form-label" for="codigo">Facultad:</label>
+          <label class="form-label" for="facultad">Facultad:</label>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
               <?php
                 include 'Consultas/connection.php';
@@ -49,63 +49,51 @@
             </select>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="codigo">Codigo:</label>
-            <input type="text" class="form-control" id="codigo" name="codigo"><br>
-        </div>
-        <div class="nb-3">
-            <label  class="form-label"for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre"><br>
-        </div>
-        <div class="nb-3">
-            <label class="form-label" for="credito">Credito:</label>
-            <input type="text" class="form-control" id="credito" name="credito"><br>
-        </div>
-        <div class="nb-3">
-            <label class="form-label" for="ciclo">Ciclo:</label>
-            <select id="ciclo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="ciclo">
-            <option selected>Seleccione el ciclo de la Asignatura!!!!</option>
-            <option value="I">I</option>
-            <option value="II">II</option>
-            <option value="III">III</option>
-            <option value="IV">IV</option>
-            <option value="V">V</option>
-            <option value="VI">VI</option>
-            <option value="VII">VII</option>
-            <option value="VIII">VIII</option>
-            <option value="IX">IX</option>
-            <option value="X">X</option>
+          <label class="form-label" for="programa">Nombre Asignatura:</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <?php
+                include 'Consultas/silabo_agregar.php'; 
+                foreach($sql_consulta as $opciones):?>
+                <option><?php echo $opciones['Nombre']?></option>
+              <?php endforeach ?>
             </select>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="tiempo">Tiempo:</label>
-            <select id="tiempo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="tiempo">
-            <option selected>Seleccione el tiempo del curso!!!!</option>
-            <option value="1 hora">1 hora</option>
-            <option value="2 horas">2 horas</option>
-            <option value="3 horas">3 horas</option>
-            <option value="4 horas">4 horas</option>
-            <option value="5 horas">5 horas</option>
+          <label class="form-label" for="docente">Docente:</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <?php
+                include 'Consultas/connection.php';
+                $consulta="SELECT Nombre,Apellido FROM Docente";
+                $sql_consulta=mysqli_query($conexion,$consulta) or die(mysqli_error($conexion));
+              ?>
+              <?php foreach($sql_consulta as $opciones):?>
+                <option><?php echo $opciones['Nombre'] . ' ' . $opciones['Apellido']; ?></option>
+              <?php endforeach ?>
             </select>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="tiempo">Grado:</label>
-            <select id="grado" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="grado">
-            <option selected>Seleccione el grado del curso!!!!</option>
-            <option value="Maestria">Maestria</option>
-            <option value="Doctorado">Doctorado</option>
-            </select>
+            <label class="form-label" for="semestre">Semestre:</label>
+            <input type="text" class="form-control" id="semestre" name="semestre"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="tipo">Tipo:</label>
-            <input type="text" class="form-control" id="tipo" name="tipo"><br>
+            <label class="form-label" for="duracion">Duracion:</label>
+            <input type="text" class="form-control" id="duracion" name="duracion"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="programa">Programa:</label>
-            <input type="text" class="form-control" id="programa" name="programa"><br>
+            <label class="form-label" for="fechini">Fecha de inicio:</label>
+            <input type="text" class="form-control" id="fechini" name="fechini"><br>
         </div>
         <div class="nb-3">
-            <label class="form-label" for="mencion">Mención:</label>
-            <input type="mencion" class="form-control" id="mencion" name="mencion"><br>
+            <label class="form-label" for="fechfin">Fecha de fin:</label>
+            <input type="text" class="form-control" id="fechfin" name="fechfin"><br>
+        </div>
+        <div class="nb-3">
+            <label class="form-label" for="locaul">Local y Aula:</label>
+            <input type="text" class="form-control" id="locaul" name="locaul"><br>
+        </div>
+        <div class="nb-3">
+            <label class="form-label" for="horario">Horario:</label>
+            <input type="text" class="form-control" id="horario" name="horario"><br>
         </div>
         <input type="submit" value="Registrar" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c">
     </form> 
