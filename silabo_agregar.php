@@ -191,6 +191,46 @@
           <label class="form-label" for="referencias">Referencias Bibliograficas:</label>
           <textarea type="text" class="form-control" id="referencias" name="referencias" rows="10" cols="40"></textarea>
         </div>
+        <div class="nb-3">
+          <label class="form-label" for="recurspse">Recursos electronicos:</label>
+          <textarea type="text" class="form-control" id="referencias" name="referencias" rows="4" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="referencias">Referencias Bibliograficas:</label>
+          <textarea type="text" class="form-control" id="recurspse" name="recurspse" rows="10" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="estramet">Estrategias Metodologicas :</label>
+          <textarea type="text" class="form-control" id="estramet" name="estramet" rows="10" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="estrametau">Estrategias Metodologicas a Utilizar:</label>
+          <textarea type="text" class="form-control" id="estrametau" name="estrametau" rows="10" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="modae">Modalidades de Evaluacion:</label>
+          <textarea type="text" class="form-control" id="modae" name="modae" rows="10" cols="40"></textarea>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="nota1">Nota 1:</label>
+          <input type="text" class="form-control" id="nota1" name="nota1"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="nota2">Nota 2:</label>
+          <input type="text" class="form-control" id="nota2" name="nota2"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="nota3">Nota 3:</label>
+          <input type="text" class="form-control" id="nota3" name="nota3"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="promf">Promedio final obtenido:</label>
+          <input type="text" class="form-control" id="promf" name="promf"><br>
+        </div>
+        <div class="nb-3">
+          <label class="form-label" for="requisitos">Requisitos:</label>
+          <input type="text" class="form-control" id="requisitos" name="requisitos"><br>
+        </div>
         <input type="submit" value="Registrar" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c">
     </form> 
   </div>
