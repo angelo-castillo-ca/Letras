@@ -86,7 +86,7 @@
             </div>
             <div class="nb-3">
                 <label class="form-label" for="tipo">Tipo:</label>
-                <select id="tipo" class="form-select" multiple aria-label="multiple select example" name="tipo">
+                <select id="tipo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="tipo">
                 <option value="Contratado" <?php if ($tipo == "Contratado") echo "selected"; ?>>Contratado</option>
                 <option value="Nombrado" <?php if ($tipo == "Nombrado") echo "selected"; ?>>Nombrado</option>
                 </select>

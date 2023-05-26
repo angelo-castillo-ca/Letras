@@ -36,7 +36,7 @@
       </header>
   </div>
   <div class="container">
-    <a href="silabo.html">
+    <a href="silabo_agregar.php">
       <input type="submit" value="Agregar Nuevo Silabo" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c"/>
     </a>
   </div>

@@ -33,8 +33,21 @@
     </header>
   </div>
   <div class="container-sm nb-3">
-    <h1>Registro de Asignaturas</h1>
+    <h1>Registro de Silabo</h1>
     <form method="post" action="Consultas/asignatura_registrar.php">
+        <div class="nb-3">
+          <label class="form-label" for="codigo">Facultad:</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <?php
+                include 'Consultas/connection.php';
+                $consulta_facultad="SELECT NombreFacultad FROM Facultad";
+                $sql_consulta_facultad=mysqli_query($conexion,$consulta_facultad) or die(mysqli_error($conexion));
+              ?>
+              <?php foreach($sql_consulta_facultad as $opciones_ejecutar_consulta_asigantura):?>
+                <option><?php echo $opciones_ejecutar_consulta_asigantura['NombreFacultad']?></option>
+              <?php endforeach ?>
+            </select>
+        </div>
         <div class="nb-3">
             <label class="form-label" for="codigo">Codigo:</label>
             <input type="text" class="form-control" id="codigo" name="codigo"><br>

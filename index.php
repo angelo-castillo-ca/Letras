@@ -43,7 +43,7 @@
                 $ejecutar_consulta_asignatura=mysqli_query($conexion,$consulta_asiganatura) or die(mysqli_error($conexion));
               ?>
               <?php foreach($ejecutar_consulta_asignatura as $opciones_ejecutar_consulta_asigantura):?>
-                <option value="<?php echo $opciones_ejecutar_consulta_asigantura['Nombre']?>">
+                <option>
                   <?php echo $opciones_ejecutar_consulta_asigantura['Nombre']?>
                 </option>
               <?php endforeach ?>

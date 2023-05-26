@@ -90,7 +90,7 @@
             </div>
             <div class="nb-3">
                 <label class="form-label" for="ciclo">Ciclo:</label>
-                <select id="ciclo" class="form-select" multiple aria-label="multiple select example" name="ciclo">
+                <select id="ciclo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="ciclo">
                 <option value="I" <?php if ($ciclo == "I") echo "selected"; ?>>I</option>
                 <option value="II"<?php if ($ciclo == "II") echo "selected"; ?>>II</option>
                 <option value="III"<?php if ($ciclo == "III") echo "selected"; ?>>III</option>
@@ -105,7 +105,7 @@
             </div>
             <div class="nb-3">
                 <label class="form-label" for="tiempo">Tiempo:</label>
-                <select id="tiempo" class="form-select" multiple aria-label="multiple select example" name="tiempo">
+                <select id="tiempo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="tiempo">
                 <option value="1 hora" <?php if ($tiempo == "1 hora") echo "selected"; ?>>1 hora</option>
                 <option value="2 horas" <?php if ($tiempo == "2 horas") echo "selected"; ?>>2 horas</option>
                 <option value="3 horas" <?php if ($tiempo == "3 horas") echo "selected"; ?>>3 horas</option>
@@ -115,7 +115,7 @@
             </div>
             <div class="nb-3">
                 <label class="form-label" for="tiempo">Grado:</label>
-                <select id="grado" class="form-select" multiple aria-label="multiple select example" name="grado">
+                <select id="grado" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="grado">
                 <option value="Maestria" <?php if ($grado == "Maestria") echo "selected"; ?> >Maestria</option>
                 <option value="Doctorado" <?php if ($grado == "Doctorado") echo "selected"; ?>>Doctorado</option>
                 </select>
