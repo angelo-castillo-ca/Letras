@@ -75,8 +75,11 @@ if(isset($_POST['enviar'])){
     $row_idasignatura = mysqli_fetch_assoc($resultado_sql_get_idasignatura);
     $idasignatura = $row_idasignatura['IdAsignatura'];
   
-    $sql_get_iddocente = "SELECT IdDocente FROM Docente WHERE Nombre='".$docente."'";
-    $resultado_sql_get_iddocente = mysqli_query($conexion, $sql_get_iddocente);
+    $sql_get_iddocente = "SELECT IdDocente FROM Docente WHERE CONCAT(Nombre, ' ', Apellido) = ?";
+    $stmt_get_iddocente = mysqli_prepare($conexion, $sql_get_iddocente);
+    mysqli_stmt_bind_param($stmt_get_iddocente, "s", $docente);
+    mysqli_stmt_execute($stmt_get_iddocente);
+    $resultado_sql_get_iddocente = mysqli_stmt_get_result($stmt_get_iddocente);
     $row_iddocente = mysqli_fetch_assoc($resultado_sql_get_iddocente);
     $iddocente = $row_iddocente['IdDocente'];
 
@@ -171,11 +174,11 @@ if(isset($_POST['enviar'])){
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="facultad">
                 <?php
                 include 'connection.php';
-                $consulta_facultad = "SELECT NombreFacultad FROM Facultad";
+                $consulta_facultad = "SELECT * FROM Facultad";
                 $sql_consulta_facultad = mysqli_query($conexion, $consulta_facultad) or die(mysqli_error($conexion));
                 while ($opciones = mysqli_fetch_assoc($sql_consulta_facultad)) {
                     ?>
-                    <option <?php if ($facultad == $opciones['NombreFacultad']) echo "selected"; ?>><?php echo $opciones['NombreFacultad']; ?></option>
+                    <option <?php if ($facultad == $opciones['IdFacultad']) echo "selected"; ?>><?php echo $opciones['NombreFacultad']; ?></option>
                 <?php
                 }
                 ?>
@@ -186,32 +189,33 @@ if(isset($_POST['enviar'])){
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nombrea">
                 <?php
                 include 'connection.php';
-                $consulta = "SELECT Nombre FROM Asignatura";
+                $consulta = "SELECT IdAsignatura,Nombre FROM Asignatura";
                 $sql_consulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
                 foreach ($sql_consulta as $opciones) {
                     ?>
-                    <option <?php if ($nombrea == $opciones['Nombre']) echo "selected"; ?>><?php echo $opciones['Nombre']; ?></option>
+                    <option <?php if ($nombrea == $opciones['IdAsignatura']) echo "selected"; ?>><?php echo $opciones['Nombre']; ?></option>
                 <?php
                 }
                 ?>
             </select>
         </div>
         <div class="nb-3">
-          <label class="form-label" for="docente">Docente:</label>
+            <label class="form-label" for="docente">Docente:</label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="docente">
                 <?php
                 include 'connection.php';
-                $consulta = "SELECT Nombre, Apellido FROM Docente";
+                $consulta = "SELECT IdDocente, Nombre, Apellido FROM Docente";
                 $sql_consulta = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
                 foreach ($sql_consulta as $opciones) {
                     $nombreCompleto = $opciones['Nombre'] . ' ' . $opciones['Apellido'];
                     ?>
-                    <option <?php if ($docente == $nombreCompleto) echo "selected"; ?>><?php echo $nombreCompleto; ?></option>
+                    <option <?php if ($docente == $opciones['IdDocente']) echo "selected"; ?>><?php echo $nombreCompleto; ?></option>
                 <?php
                 }
                 ?>
             </select>
         </div>
+
         <div class="nb-3">
           <label class="form-label" for="semestre">Semestre:</label>
           <input type="text" class="form-control" id="semestre" name="semestre" value="<?php echo $semestre; ?>"><br>

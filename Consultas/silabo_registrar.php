@@ -53,8 +53,11 @@
   $row_idasignatura = mysqli_fetch_assoc($resultado_sql_get_idasignatura);
   $idasignatura = $row_idasignatura['IdAsignatura'];
 
-  $sql_get_iddocente = "SELECT IdDocente FROM Docente WHERE Nombre='".$docente."'";
-  $resultado_sql_get_iddocente = mysqli_query($conexion, $sql_get_iddocente);
+  $sql_get_iddocente = "SELECT IdDocente FROM Docente WHERE CONCAT(Nombre, ' ', Apellido) = ?";
+  $stmt_get_iddocente = mysqli_prepare($conexion, $sql_get_iddocente);
+  mysqli_stmt_bind_param($stmt_get_iddocente, "s", $docente);
+  mysqli_stmt_execute($stmt_get_iddocente);
+  $resultado_sql_get_iddocente = mysqli_stmt_get_result($stmt_get_iddocente);
   $row_iddocente = mysqli_fetch_assoc($resultado_sql_get_iddocente);
   $iddocente = $row_iddocente['IdDocente'];
 
