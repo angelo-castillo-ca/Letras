@@ -57,9 +57,9 @@
                 <td><?php echo $f_silabo['IdSilabo']; ?></td>
                 <td><?php echo $f_silabo['Nombre']; ?></td>
                 <td>
-                  <a href="Consultas/asignatura_visualizar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-eye"></i></a>
-                  <a href="Consultas/asignatura_editar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-edit"></i></a>
-                  <a href="Consultas/asignatura.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-trash-alt"></i></a>
+                  <a href="Consultas/silabo_visualizar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-eye"></i></a>
+                  <a href="Consultas/silabo_editar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-edit"></i></a>
+                  <a href="Consultas/silabo_eliminar.php?id=<?php echo $f_silabo['IdSilabo']; ?>"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
           <?php } ?>

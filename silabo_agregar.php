@@ -52,7 +52,9 @@
           <label class="form-label" for="nombrea">Nombre Asignatura:</label>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nombrea">
               <?php
-                include 'Consultas/silabo_agregar.php'; 
+                include 'Consultas/silabo_agregar.php';
+                $consulta="SELECT Nombre FROM Asignatura";
+                $sql_consulta=mysqli_query($conexion,$consulta) or die(mysqli_error($conexion)); 
                 foreach($sql_consulta as $opciones):?>
                 <option><?php echo $opciones['Nombre']?></option>
               <?php endforeach ?>
