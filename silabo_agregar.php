@@ -37,7 +37,7 @@
     <form method="post" action="Consultas/silabo_registrar.php">
         <div class="nb-3">
           <label class="form-label" for="facultad">Facultad:</label>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="facultad">
               <?php
                 include 'Consultas/connection.php';
                 $consulta_facultad="SELECT NombreFacultad FROM Facultad";
@@ -49,8 +49,8 @@
             </select>
         </div>
         <div class="nb-3">
-          <label class="form-label" for="programa">Nombre Asignatura:</label>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <label class="form-label" for="nombrea">Nombre Asignatura:</label>
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="nombrea">
               <?php
                 include 'Consultas/silabo_agregar.php'; 
                 foreach($sql_consulta as $opciones):?>
@@ -60,7 +60,7 @@
         </div>
         <div class="nb-3">
           <label class="form-label" for="docente">Docente:</label>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="docente">
               <?php
                 include 'Consultas/connection.php';
                 $consulta="SELECT Nombre,Apellido FROM Docente";
@@ -80,12 +80,12 @@
           <input type="text" class="form-control" id="duracion" name="duracion"><br>
         </div>
         <div class="nb-3">
-          <label class="form-label" for="fechini">Fecha de inicio:</label>
-          <input type="text" class="form-control" id="fechini" name="fechini"><br>
+          <label class="form-label" for="fechaini">Fecha de inicio:</label>
+          <input type="text" class="form-control" id="fechaini" name="fechaini"><br>
         </div>
         <div class="nb-3">
-          <label class="form-label" for="fechfin">Fecha de fin:</label>
-          <input type="text" class="form-control" id="fechfin" name="fechfin"><br>
+          <label class="form-label" for="fechafin">Fecha de fin:</label>
+          <input type="text" class="form-control" id="fechafin" name="fechafin"><br>
         </div>
         <div class="nb-3">
           <label class="form-label" for="locaul">Local y Aula:</label>
@@ -192,12 +192,8 @@
           <textarea type="text" class="form-control" id="referencias" name="referencias" rows="10" cols="40"></textarea>
         </div>
         <div class="nb-3">
-          <label class="form-label" for="recurspse">Recursos electronicos:</label>
-          <textarea type="text" class="form-control" id="referencias" name="referencias" rows="4" cols="40"></textarea>
-        </div>
-        <div class="nb-3">
-          <label class="form-label" for="referencias">Referencias Bibliograficas:</label>
-          <textarea type="text" class="form-control" id="recurspse" name="recurspse" rows="10" cols="40"></textarea>
+          <label class="form-label" for="recursesp">Recursos electronicos:</label>
+          <textarea type="text" class="form-control" id="recursesp" name="recursesp" rows="4" cols="40"></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="estramet">Estrategias Metodologicas :</label>

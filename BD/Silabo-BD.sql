@@ -30,25 +30,9 @@ CREATE TABLE Asignatura(
     FOREIGN KEY (IdFacultad) REFERENCES Facultad(IdFacultad)
 );
 
-CREATE TABLE Silabo(
-	IdSilabo MEDIUMINT NOT NULL AUTO_INCREMENT,
-    Sumilla VARCHAR(500) NOT NULL,
-    EstrategiaDidactica VARCHAR(500) NOT NULL,
-    IdAsignatura MEDIUMINT NOT NULL,
-    Periodo VARCHAR(10) NOT NULL,
-    Fecha_Inicio VARCHAR(10) NOT NULL,
-    Fecha_Fin VARCHAR(10) NOT NULL,
-    Local_Aula VARCHAR(50) NOT NULL,
-    Horario VARCHAR(50) NOT NULL,
-    Cordinador VARCHAR(50) NOT NULL,
-    Requisito_aprobar VARCHAR(200) NOT NULL,
-    PRIMARY KEY(IdSilabo),
-    FOREIGN KEY(IdAsignatura) REFERENCES Asignatura(IdAsignatura)
-);
-
 CREATE TABLE Docente(
 	IdDocente MEDIUMINT NOT NULL AUTO_INCREMENT,
-    Nombre VARCHAR(30),
+    Nombre VARCHAR(30) NOT NULL,
     Apellido VARCHAR(30) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     DNI VARCHAR(8) NOT NULL,
@@ -56,60 +40,68 @@ CREATE TABLE Docente(
     PRIMARY KEY(IdDocente)
 );
 
-CREATE TABLE Docente_Asignatura(
-	IdDocAsignatura MEDIUMINT NOT NULL AUTO_INCREMENT,
-    IdDocente MEDIUMINT NOT NULL,
+CREATE TABLE Maestria(
+    IdMaestria MEDIUMINT NOT NULL AUTO_INCREMENT,
+    Nombre VARCHAR(50) NOT NULL,
+    PRIMARY KEY (IdMaestria)
+);
+
+CREATE TABLE Doctorado(
+    IdDoctorado MEDIUMINT NOT NULL AUTO_INCREMENT,
+    Nombre VARCHAR(50) NOT NULL,
+    PRIMARY KEY (IdDoctorado)
+);
+
+CREATE TABLE Silabo(
+    IdSilabo MEDIUMINT NOT NULL AUTO_INCREMENT,
+    IdFacultad MEDIUMINT NOT NULL,
     IdAsignatura MEDIUMINT NOT NULL,
-    PRIMARY KEY(IdDocAsignatura),
-    FOREIGN KEY(IdDocente) REFERENCES Docente(IdDocente),
-    FOREIGN KEY(IdAsignatura) REFERENCES Asignatura(IDAsignatura)
+    IdDocente MEDIUMINT NOT NULL,
+    Semestre VARCHAR(8) NOT NULL,
+    Duracion VARCHAR(2) NOT NULL,
+    FechaInicio VARCHAR(20) NOT NULL,
+    FechaFin VARCHAR(20) NOT NULL,
+    LocAul VARCHAR(30) NOT NULL,
+    Horario VARCHAR(30) NOT NULL,
+    Sumilla VARCHAR(100) NOT NULL,
+    CompetenciaGeneral VARCHAR(100) NOT NULL,
+    CompetenciasEspecificas VARCHAR(200) NOT NULL,
+    Unidad1 VARCHAR(50) NOT NULL,
+    Semana1 VARCHAR(300) NOT NULL,
+    Semana2 VARCHAR(300) NOT NULL,
+    Semana3 VARCHAR(300) NOT NULL,
+    Semana4 VARCHAR(300) NOT NULL,
+    Unidad2 VARCHAR(50) NOT NULL,
+    Semana5 VARCHAR(300) NOT NULL,
+    Semana6 VARCHAR(300) NOT NULL,
+    Semana7 VARCHAR(300) NOT NULL,
+    Semana8 VARCHAR(300) NOT NULL,
+    Unidad3 VARCHAR(50) NOT NULL,
+    Semana9 VARCHAR(300) NOT NULL,
+    Semana10 VARCHAR(300) NOT NULL,
+    Semana11 VARCHAR(300) NOT NULL,
+    Semana12 VARCHAR(300) NOT NULL,
+    Unidad4 VARCHAR(50) NOT NULL,
+    Semana13 VARCHAR(300) NOT NULL,
+    Semana14 VARCHAR(300) NOT NULL,
+    Semana15 VARCHAR(300) NOT NULL,
+    Semana16 VARCHAR(300) NOT NULL,
+    Referencias VARCHAR(1000) NOT NULL,
+    RecursosElectronicos VARCHAR(100) NOT NULL,
+    EstrategiasMetologias VARCHAR(100) NOT NULL,
+    EstrategiasMetologiasUtil VARCHAR(100) NOT NULL,
+    ModaliEvaluacion VARCHAR(100) NOT NULL,
+    Nota1 VARCHAR(10) NOT NULL,
+    Nota2 VARCHAR(10) NOT NULL,
+    Nota3 VARCHAR(10) NOT NULL,
+    PromFin VARCHAR(20) NOT NULL,
+    Requisitos VARCHAR(50) NOT NULL,
+    PRIMARY KEY(IdSilabo),
+    FOREIGN KEY(IdFacultad) REFERENCES Facultad(IdFacultad),
+    FOREIGN KEY(IdAsignatura) REFERENCES Asignatura(IdAsignatura),
+    FOREIGN KEY(IdDocente) REFERENCES Docente(IdDocente)
 );
 
-CREATE TABLE Competencia(
-	IdCompGeneral MEDIUMINT NOT NULL AUTO_INCREMENT,
-    IdSilabo MEDIUMINT NOT NULL,
-    Descripcion VARCHAR(100) NOT NULL,
-    PRIMARY KEY(IdCompGeneral),
-    FOREIGN KEY(IdSilabo) REFERENCES Silabo(IdSilabo)
-);
-
-CREATE TABLE Referencia(
-	IdReferencia MEDIUMINT NOT NULL AUTO_INCREMENT,
-	IdSilabo MEDIUMINT NOT NULL,
-    Cita VARCHAR(200) NOT NULL,
-    PRIMARY KEY(IdReferencia),
-	FOREIGN KEY(IdSilabo) REFERENCES Silabo(IdSilabo)
-);
-
-CREATE TABLE Unidad_Didactica(
-	IdUnidad MEDIUMINT NOT NULL AUTO_INCREMENT,
-	NumUnidad VARCHAR(1) NOT NULL,
-	CompetenciaEspecifica VARCHAR(200) NOT NULL,
-    Estrategia VARCHAR(50) NOT NULL,
-    Actividad VARCHAR(50) NOT NULL,
-    Evaluacion VARCHAR(50) NOT NULL,
-    IdSilabo MEDIUMINT NOT NULL,
-    PRIMARY KEY(IdUnidad),
-    FOREIGN KEY(IdSilabo) REFERENCES Silabo(IdSilabo)
-);
-
-CREATE TABLE Contenido(
-	IdContenido MEDIUMINT NOT NULL AUTO_INCREMENT,
-	NumSemana VARCHAR(2) NOT NULL,
-    Tema VARCHAR(100) NOT NULL,
-    IdUnidad MEDIUMINT NOT NULL,
-    PRIMARY KEY(IdContenido),
-    FOREIGN KEY(IdUnidad) REFERENCES Unidad_Didactica(IdUnidad)
-);
-
-CREATE TABLE Docente_Asignado(
-	IdDocenteAsignado MEDIUMINT NOT NULL AUTO_INCREMENT,
-    IdSilabo MEDIUMINT NOT NULL,
-	IdDocente MEDIUMINT NOT NULL,
-    Cargo VARCHAR(20) NOT NULL,
-    PRIMARY KEY(IdDocenteAsignado),
-    FOREIGN KEY(IdSilabo) REFERENCES Silabo(IdSilabo)
-);
 INSERT INTO Usuario(Correo, Contraseña)
 VALUES
     ('admin','admin');
@@ -171,3 +163,16 @@ VALUES
     ('Paulina','Costa Albero','PaulinaC@unmsm.edu.pe','58965489','Nombrado'),
     ('Felicia','Corominas Almansa','FeliciaC@unmsm.edu.pe','54879321','Nombrado'),
     ('Armida','Adán Galván','ArmidaA@unmsm.edu.pe','21585489','Nombrado');
+
+INSERT INTO Maestria(Nombre)
+VALUES
+    ('Maestria en Literatura'),
+    ('Maestria en Filosofia');
+
+INSERT INTO Doctorado(Nombre)
+VALUES
+    ('Doctorado en Literatura'),
+    ('Doctorado en Filosofia');
+
+SELECT IdFacultad FROM Facultad WHERE NombreFacultad='Facultad de Letras';
+
