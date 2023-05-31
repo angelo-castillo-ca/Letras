@@ -242,15 +242,15 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="sumilla">Sumilla:</label>
-          <textarea type="text" class="form-control" id="sumilla" name="sumilla" rows="4" cols="40" value="<?php echo $sumilla; ?>"></textarea>
+          <textarea type="text" class="form-control" id="sumilla" name="sumilla" rows="4" cols="40"><?php echo $sumilla; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="compgen">Competencia General:</label>
-          <textarea type="text" class="form-control" id="compgen" name="compgen" rows="4" cols="40" value="<?php echo $compgen; ?>"></textarea>
+          <textarea type="text" class="form-control" id="compgen" name="compgen" rows="4" cols="40"><?php echo $compgen; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="compesp">Competencias Especificas:</label>
-          <textarea type="text" class="form-control" id="compesp" name="compesp" rows="4" cols="40" value="<?php echo $compesp; ?>"></textarea>
+          <textarea type="text" class="form-control" id="compesp" name="compesp" rows="4" cols="40"><?php echo $compesp; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="und1">Unidad 1:</label>
@@ -258,19 +258,19 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana1">Temas Semana 1:</label>
-          <textarea type="text" class="form-control" id="semana1" name="semana1" rows="4" cols="40"  value="<?php echo $semana1; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana1" name="semana1" rows="4" cols="40"><?php echo $semana1; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana2">Temas Semana 2:</label>
-          <textarea type="text" class="form-control" id="semana2" name="semana2" rows="4" cols="40" value="<?php echo $semana2; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana2" name="semana2" rows="4" cols="40"><?php echo $semana2; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana3">Temas Semana 3:</label>
-          <textarea type="text" class="form-control" id="semana3" name="semana3" rows="4" cols="40" value="<?php echo $semana3; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana3" name="semana3" rows="4" cols="40"><?php echo $semana3; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana4">Temas Semana 4:</label>
-          <textarea type="text" class="form-control" id="semana4" name="semana4" rows="4" cols="40" value="<?php echo $semana4; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana4" name="semana4" rows="4" cols="40"><?php echo $semana4; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="und2">Unidad 2:</label>
@@ -278,19 +278,19 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana5">Temas Semana 5:</label>
-          <textarea type="text" class="form-control" id="semana5" name="semana5" rows="4" cols="40" value="<?php echo $semana5; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana5" name="semana5" rows="4" cols="40"><?php echo $semana5; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana6">Temas Semana 6:</label>
-          <textarea type="text" class="form-control" id="semana6" name="semana6" rows="4" cols="40" value="<?php echo $semana6; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana6" name="semana6" rows="4" cols="40"><?php echo $semana6; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana7">Temas Semana 7:</label>
-          <textarea type="text" class="form-control" id="semana7" name="semana7" rows="4" cols="40" value="<?php echo $semana7; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana7" name="semana7" rows="4" cols="40"><?php echo $semana7; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana8">Temas Semana 8:</label>
-          <textarea type="text" class="form-control" id="semana8" name="semana8" rows="4" cols="40" value="<?php echo $semana8; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana8" name="semana8" rows="4" cols="40"><?php echo $semana8; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="und3">Unidad 3:</label>
@@ -298,19 +298,19 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana9">Temas Semana 9:</label>
-          <textarea type="text" class="form-control" id="semana9" name="semana9" rows="4" cols="40" value="<?php echo $semana9; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana9" name="semana9" rows="4" cols="40"><?php echo $semana9; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana10">Temas Semana 10:</label>
-          <textarea type="text" class="form-control" id="semana10" name="semana10" rows="4" cols="40" value="<?php echo $semana10; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana10" name="semana10" rows="4" cols="40"><?php echo $semana10; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana11">Temas Semana 11:</label>
-          <textarea type="text" class="form-control" id="semana11" name="semana11" rows="4" cols="40" value="<?php echo $semana11; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana11" name="semana11" rows="4" cols="40"><?php echo $semana11; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana12">Temas Semana 12:</label>
-          <textarea type="text" class="form-control" id="semana12" name="semana12" rows="4" cols="40" value="<?php echo $semana12; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana12" name="semana12" rows="4" cols="40"><?php echo $semana12; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="und4">Unidad 4:</label>
@@ -318,39 +318,39 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana13">Temas Semana 13:</label>
-          <textarea type="text" class="form-control" id="semana13" name="semana13" rows="4" cols="40" value="<?php echo $semana13; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana13" name="semana13" rows="4" cols="40"><?php echo $semana13; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana14">Temas Semana 14:</label>
-          <textarea type="text" class="form-control" id="semana14" name="semana14" rows="4" cols="40" value="<?php echo $semana14; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana14" name="semana14" rows="4" cols="40"><?php echo $semana14; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana15">Temas Semana 15:</label>
-          <textarea type="text" class="form-control" id="semana15" name="semana15" rows="4" cols="40" value="<?php echo $semana15; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana15" name="semana15" rows="4" cols="40"><?php echo $semana15; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="semana16">Temas Semana 16:</label>
-          <textarea type="text" class="form-control" id="semana16" name="semana16" rows="4" cols="40" value="<?php echo $semana16; ?>"></textarea>
+          <textarea type="text" class="form-control" id="semana16" name="semana16" rows="4" cols="40"><?php echo $semana16; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="referencias">Referencias Bibliograficas:</label>
-          <textarea type="text" class="form-control" id="referencias" name="referencias" rows="10" cols="40" value="<?php echo $referencias; ?>"></textarea>
+          <textarea type="text" class="form-control" id="referencias" name="referencias" rows="10" cols="40"><?php echo $referencias; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="recursesp">Recursos electronicos:</label>
-          <textarea type="text" class="form-control" id="recursesp" name="recursesp" rows="4" cols="40" value="<?php echo $recursesp; ?>"></textarea>
+          <textarea type="text" class="form-control" id="recursesp" name="recursesp" rows="4" cols="40"><?php echo $recursesp; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="estramet">Estrategias Metodologicas :</label>
-          <textarea type="text" class="form-control" id="estramet" name="estramet" rows="10" cols="40" value="<?php echo $estramet; ?>"></textarea>
+          <textarea type="text" class="form-control" id="estramet" name="estramet" rows="10" cols="40"><?php echo $estramet; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="estrametau">Estrategias Metodologicas a Utilizar:</label>
-          <textarea type="text" class="form-control" id="estrametau" name="estrametau" rows="10" cols="40" value="<?php echo $estrametau; ?>"></textarea>
+          <textarea type="text" class="form-control" id="estrametau" name="estrametau" rows="10" cols="40"><?php echo $estrametau; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="modae">Modalidades de Evaluacion:</label>
-          <textarea type="text" class="form-control" id="modae" name="modae" rows="10" cols="40" value="<?php echo $modae; ?>"></textarea>
+          <textarea type="text" class="form-control" id="modae" name="modae" rows="10" cols="40"><?php echo $modae; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="nota1">Nota 1:</label>
