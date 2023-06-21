@@ -16,6 +16,12 @@ if ($result->num_rows > 0) {
     $programa = $dato_asignatura["Programa"];
     $mencion = $dato_asignatura["Mencion"];
     $nom_asig = $dato_asignatura["Nombre"];
+    $tipo_asig = $dato_asignatura["Tipo"];
+    $cod_asig = $dato_asignatura["Codigo"];
+    $credt_Asig = $dato_asignatura["Credito"];
+    $tmp_asig = $dato_asignatura["Tiempo"];
+    $tmp_asig_numerico = intval($tmp_asig);
+    $tmp_sem = $tmp_asig_numerico * 16;
 
     $dato_docente = $resultado_sql_dato_docente->fetch_assoc();
     $nom_doc = $dato_docente["Nombre"];
@@ -23,7 +29,13 @@ if ($result->num_rows > 0) {
     $correo = $dato_docente["Correo"];
 
     $dato_silabo = $result ->fetch_assoc();
-    $semestre= $dato_silabo["Semestre"];
+    $semestre = $dato_silabo["Semestre"];
+    $duracion = $dato_silabo["Duracion"];
+    $fech_ini = $dato_silabo["FechaInicio"];
+    $fech_fin = $dato_silabo["FechaFin"];
+    $locaul = $dato_silabo["LocAul"];
+    $horario = $dato_silabo["LocAul"];
+    $sumilla = $dato_silabo["Sumilla"];
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass{article}\n";
@@ -69,34 +81,24 @@ if ($result->num_rows > 0) {
     echo "\\end{titlepage}\n";
 
     echo "\\section{INFORMACION GENERAL}\n";
-        echo "1.1. Nombre de la asignatura :Seminario de Tesis I \\\ \n";
-        echo "1.2. Tipo de asignatura : Profundización o investigación \\\ \n";
-        echo "1.3. Profesor(a) :Elton Honores \\\ \n";
-        echo "1.4. Programa :Maestría en Arte Peruano y Latinoamericano \\\ \n";
-        echo "1.5. Mención :Historia del arte \\\ \n";
-        echo "1.6. Código de asignatura :L72217 \\\ \n";
-        echo "1.7. Créditos :06 \\\ \n";
-        echo "1.8. N° de horas semanales :3 \\\ \n";
-        echo "1.9. N° de horas por semestre :48 \\\ \n";
-        echo "1.10. Semestre académico : 2022-I \\\ \n";
-        echo "1.11. Duración : 16 semanas \\\ \n";
-        echo "1.12. Fecha de inicio :11 de abril \\\ \n";
-        echo "1.13. Fecha de finalización :25 de julio \\\ \n";
-        echo "1.14. Local y aula :Aula virtual \\\ \n";
-        echo "1.15. Horario :Lunes de 6:00-9:00 pm \\\ \n";
+        echo "1.1. Nombre de la asignatura :$nom_asig \\\ \n";
+        echo "1.2. Tipo de asignatura : $tipo_asig \\\ \n";
+        echo "1.3. Profesor(a) : $nom_doc  \\\ \n";
+        echo "1.4. Programa : $programa \\\ \n";
+        echo "1.5. Mención : $mencion \\\ \n";
+        echo "1.6. Código de asignatura : $cod_asig \\\ \n";
+        echo "1.7. Créditos : $credt_Asig  \\\ \n";
+        echo "1.8. N° de horas semanales : $tmp_asig \\\ \n";
+        echo "1.9. N° de horas por semestre : $tmp_sem horas \\\ \n";
+        echo "1.10. Semestre académico : $semestre \\\ \n";
+        echo "1.11. Duración : $duracion semanas \\\ \n";
+        echo "1.12. Fecha de inicio : $fech_ini \\\ \n";
+        echo "1.13. Fecha de finalización : $fech_fin \\\ \n";
+        echo "1.14. Local y aula : $locaul \\\ \n";
+        echo "1.15. Horario : $horario \\\ \n";
     echo "\\section{FUNDAMENTOS DE LA ASIGNATURA}\n";
         echo "\\subsection{Sumilla}\n";
-        echo "Es un seminario de investigación interdisciplinar. Reelabora el anteproyecto de tesis de
-        postulante a la Maestría. Reflexiona y discute las epistemes de las humanidades para el
-        desarrollo disciplinar. Conoce la metodología de investigación científica y de las humanidades.
-        Identifica y profundiza el tema-problema central de la tesis en una perspectiva de proyecto de
-        investigación teórico metodológico y de sustento académico. Indaga y sustenta los principales
-        antecedentes, las teorías y categorías que implica la investigación de tesis con una visión crítica
-        y académica. Redefine y planifica el proyecto de tesis de Maestría. Redacta, discute, defiende y
-        aprueba la versión final del proyecto de tesis e inscribe en el Registro de Proyectos de Tesis de la
-        UPG. Entregable: (1) Proyecto de Tesis de Maestría; (2) Resumen de primera ponencia sobre su
-        tesis a presentar en un evento académico nacional o internacional (de presentar ponencia esta
-        se valida con el entregable (3) del Seminario de Tesis II).)\n";
+        echo "$sumilla\n";
 
     echo "\\end{document}\n";
 } else {

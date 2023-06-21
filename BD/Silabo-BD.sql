@@ -20,7 +20,7 @@ CREATE TABLE Asignatura(
 	Nombre VARCHAR(100) NOT NULL,
 	Credito	VARCHAR(2) NOT NULL,
     Ciclo VARCHAR(5) NOT NULL,
-	Tiempo VARCHAR(10) NOT NULL,
+	Tiempo VARCHAR(8) NOT NULL,
     IdFacultad MEDIUMINT NOT NULL,
     Grado VARCHAR(10) NOT NULL,
 	Tipo VARCHAR(60) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE Silabo(
     FechaFin VARCHAR(20) NOT NULL,
     LocAul VARCHAR(30) NOT NULL,
     Horario VARCHAR(30) NOT NULL,
-    Sumilla VARCHAR(100) NOT NULL,
+    Sumilla VARCHAR(1100) NOT NULL,
     CompetenciaGeneral VARCHAR(100) NOT NULL,
     CompetenciasEspecificas VARCHAR(200) NOT NULL,
     Unidad1 VARCHAR(50) NOT NULL,
@@ -176,3 +176,8 @@ VALUES
 
 SELECT IdFacultad FROM Facultad WHERE NombreFacultad='Facultad de Letras';
 
+SELECT S.IdSilabo, A.Programa, A.Mencion FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura;
+
+SELECT A.Programa, A.Mencion FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura;
+
+SELECT * FROM Silabo S JOIN Docente D ON S.IdDocente = D.IdDocente;
