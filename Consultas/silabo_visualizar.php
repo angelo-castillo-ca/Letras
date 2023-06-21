@@ -1,14 +1,14 @@
 <?php
 include('connection.php');
+$id=$_GET['id'];
 
-// Consulta a la base de datos
-$sql = "SELECT * FROM Silabo";
+$sql = "SELECT * FROM Silabo WHERE IdSilabo = '".$id."'";
 $result = $conexion->query($sql);
 
-$sql_datos_asignatura = "SELECT * FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura";
+$sql_datos_asignatura = "SELECT * FROM Silabo S JOIN Asignatura A ON A.IdAsignatura = '".$id."'";
 $resultado_sql_datos_asignatura = $conexion->query($sql_datos_asignatura);
 
-$sql_dato_docente = "SELECT * FROM Silabo S JOIN Docente D ON S.IdDocente = D.IdDocente";
+$sql_dato_docente = "SELECT * FROM Silabo S JOIN Docente D ON D.IdDocente = '".$id."'";
 $resultado_sql_dato_docente = $conexion->query($sql_dato_docente);
 
 if ($result->num_rows > 0) {
