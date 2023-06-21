@@ -36,6 +36,9 @@ if ($result->num_rows > 0) {
     $locaul = $dato_silabo["LocAul"];
     $horario = $dato_silabo["LocAul"];
     $sumilla = $dato_silabo["Sumilla"];
+    $comp_gen = $dato_silabo["CompetenciaGeneral"];
+    $comp_esp = $dato_silabo["CompetenciasEspecificas"];
+    $items_comp_esp = preg_split('/\R/', $comp_esp);
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass{article}\n";
@@ -98,8 +101,17 @@ if ($result->num_rows > 0) {
         echo "1.15. Horario : $horario \\\ \n";
     echo "\\section{FUNDAMENTOS DE LA ASIGNATURA}\n";
         echo "\\subsection{Sumilla}\n";
-        echo "$sumilla\n";
-
+            echo "$sumilla\n";
+        echo "\\subsection{Competencia General}\n";
+            echo "$comp_gen\n";
+        echo "\\subsection{Competencias Especificas}\n";
+            echo "\\begin{itemize}\n";
+            foreach ($items_comp_esp as $item_comp_esp) {
+                $item_comp_esp = trim($item_comp_esp); 
+                echo "\\item " . $item_comp_esp . "\n";
+            }  
+            echo "\\end{itemize}\n";     
+            
     echo "\\end{document}\n";
 } else {
     echo "No se encontraron resultados.";
