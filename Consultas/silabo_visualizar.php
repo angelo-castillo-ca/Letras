@@ -40,9 +40,18 @@ if ($result->num_rows > 0) {
     $comp_esp = $dato_silabo["CompetenciasEspecificas"];
     $items_comp_esp = preg_split('/\R/', $comp_esp);
     $und1 = $dato_silabo["Unidad1"];
+    $semana1 = $dato_silabo["Semana1"];
+    $items_semana1 = preg_split('/\R/', $semana1);
+    $semana2 = $dato_silabo["Semana2"];
+    $items_semana2 = preg_split('/\R/', $semana2);
+    $semana3 = $dato_silabo["Semana3"];
+    $items_semana3 = preg_split('/\R/', $semana3);
+    $semana4 = $dato_silabo["Semana4"];
+    $items_semana4 = preg_split('/\R/', $semana4);
 
     // Generar el código LaTeX con los datos obtenidos
-    echo "\\documentclass{article}\n";
+    echo "\\documentclass[a4paper]{article}\n";
+    echo "\\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}\n";
     echo "\\usepackage{graphicx}\n";
     echo "\\begin{document}\n";
     echo "\\begin{titlepage}\n";
@@ -67,7 +76,7 @@ if ($result->num_rows > 0) {
             echo "{\large $programa con mencion en $mencion}\\\[0.3cm]\n";
         echo "\\end{center}\n";
 
-        echo "\\vspace{0.8cm}\n";
+        echo "\\vspace{0.9cm}\n";
         echo "\\begin{center}\n";
             echo "{\huge \bf SILABO}\\\[0.3cm]\n";
         echo "\\end{center}\n";
@@ -121,6 +130,55 @@ if ($result->num_rows > 0) {
     echo "\\section{CONTENIDO TEMÁTICO}\n";
     echo "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
 
+    echo "\\begin{table}[ht]\n";
+        echo "\\centering\n";
+        echo "\\begin{tabular}{|c|c|c|}\n";
+            echo "\\hline\n";
+                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            echo "\\hline\n";
+                echo "Primera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana1 as $item_semana1) {
+                    $item_semana1 = trim($item_semana1); 
+                    echo "\\item " . $item_semana1 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & Celda 6 \\\ \n";
+            echo "\\hline \n";
+                echo "Segunda \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana2 as $item_semana2) {
+                    $item_semana2 = trim($item_semana2); 
+                    echo "\\item " . $item_semana2 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & Celda 9 \\\ \n";
+            echo "\\hline \n";
+                echo "Tercera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana3 as $item_semana3) {
+                    $item_semana2 = trim($item_semana3); 
+                    echo "\\item " . $item_semana3 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & Celda 12 \\\ \n";
+            echo "\\hline \n";
+                echo "Cuarta \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana4 as $item_semana4) {
+                    $item_semana4 = trim($item_semana4); 
+                    echo "\\item " . $item_semana4 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & Celda 15 \\\ \n";
+            echo "\\hline \n";
+        echo "\\end{tabular}\n";
+    echo "\\end{table}\n";
+    
     echo "\\end{document}\n";
 } else {
     echo "No se encontraron resultados.";
