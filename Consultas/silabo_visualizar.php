@@ -39,6 +39,7 @@ if ($result->num_rows > 0) {
     $comp_gen = $dato_silabo["CompetenciaGeneral"];
     $comp_esp = $dato_silabo["CompetenciasEspecificas"];
     $items_comp_esp = preg_split('/\R/', $comp_esp);
+    $und1 = $dato_silabo["Unidad1"];
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass{article}\n";
@@ -99,6 +100,7 @@ if ($result->num_rows > 0) {
         echo "1.13. Fecha de finalización : $fech_fin \\\ \n";
         echo "1.14. Local y aula : $locaul \\\ \n";
         echo "1.15. Horario : $horario \\\ \n";
+
     echo "\\section{FUNDAMENTOS DE LA ASIGNATURA}\n";
         echo "\\subsection{Sumilla}\n";
             echo "$sumilla\n";
@@ -110,8 +112,15 @@ if ($result->num_rows > 0) {
                 $item_comp_esp = trim($item_comp_esp); 
                 echo "\\item " . $item_comp_esp . "\n";
             }  
-            echo "\\end{itemize}\n";     
-            
+            echo "\\end{itemize}\n"; 
+
+    echo "\\begin{flushleft}\n";
+            echo "ASIGNATURA \\\ \n";
+    echo "\\end{flushleft}\n";
+
+    echo "\\section{CONTENIDO TEMÁTICO}\n";
+    echo "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
+
     echo "\\end{document}\n";
 } else {
     echo "No se encontraron resultados.";
