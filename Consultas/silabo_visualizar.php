@@ -66,10 +66,28 @@ if ($result->num_rows > 0) {
     $fecha_semana6 = date('d-m', strtotime($fech_ini. ' + 5 weeks'));
     $fecha_semana7 = date('d-m', strtotime($fech_ini. ' + 6 weeks'));
     $fecha_semana8 = date('d-m', strtotime($fech_ini. ' + 7 weeks'));
+    $und3 = $dato_silabo["Unidad3"];
+    $semana9 = $dato_silabo["Semana9"];
+    $items_semana9 = preg_split('/\R/', $semana9);
+    $semana10 = $dato_silabo["Semana10"];
+    $items_semana10 = preg_split('/\R/', $semana10);
+    $semana11 = $dato_silabo["Semana11"];
+    $items_semana11 = preg_split('/\R/', $semana11);
+    $semana12 = $dato_silabo["Semana12"];
+    $items_semana12 = preg_split('/\R/', $semana12);
     $fecha_semana9 = date('d-m', strtotime($fech_ini. ' + 8 weeks'));
     $fecha_semana10 = date('d-m', strtotime($fech_ini. ' + 9 weeks'));
     $fecha_semana11 = date('d-m', strtotime($fech_ini. ' + 10 weeks'));
     $fecha_semana12 = date('d-m', strtotime($fech_ini. ' + 11 weeks'));
+    $und4 = $dato_silabo["Unidad4"];
+    $semana13 = $dato_silabo["Semana13"];
+    $items_semana13 = preg_split('/\R/', $semana13);
+    $semana14 = $dato_silabo["Semana14"];
+    $items_semana14 = preg_split('/\R/', $semana14);
+    $semana15 = $dato_silabo["Semana15"];
+    $items_semana15 = preg_split('/\R/', $semana15);
+    $semana16 = $dato_silabo["Semana16"];
+    $items_semana16 = preg_split('/\R/', $semana16);
     $fecha_semana13 = date('d-m', strtotime($fech_ini. ' + 12 weeks'));
     $fecha_semana14 = date('d-m', strtotime($fech_ini. ' + 13 weeks'));
     $fecha_semana15 = date('d-m', strtotime($fech_ini. ' + 14 weeks'));
@@ -203,9 +221,9 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana4 \\\ \n";
             echo "\\hline \n";
         echo "\\end{tabular}\n";
-    echo "\\end{table}\n";
+    echo "\\end{table} \\\ \n";
     
-    echo "\\subsection{Unidad de aprendizaje I:(\"$und2\")}\n";
+    echo "\\subsection{Unidad de aprendizaje II:(\"$und2\")}\n";
     echo "\\begin{table}[ht]\n";
         echo "\\centering\n";
         echo "\\begin{tabular}{|c|c|c|}\n";
@@ -251,6 +269,106 @@ if ($result->num_rows > 0) {
                 }
                 echo "\\end{itemize}\n";
                 echo "\\end{minipage} & $fecha_semana8 \\\ \n";
+            echo "\\hline \n";
+        echo "\\end{tabular}\n";
+    echo "\\end{table}\n";
+
+    echo "\\subsection{Unidad de aprendizaje III:(\"$und3\")}\n";
+    echo "\\begin{table}[ht]\n";
+        echo "\\centering\n";
+        echo "\\begin{tabular}{|c|c|c|}\n";
+            echo "\\hline\n";
+                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            echo "\\hline\n";
+                echo "Primera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana9 as $item_semana9) {
+                    $item_semana9 = trim($item_semana9); 
+                    echo "\\item " . $item_semana9 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana9\\\ \n";
+            echo "\\hline \n";
+                echo "Segunda \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana10 as $item_semana10) {
+                    $item_semana10 = trim($item_semana10); 
+                    echo "\\item " . $item_semana10 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana10\\\ \n";
+            echo "\\hline \n";
+                echo "Tercera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana11 as $item_semana11) {
+                    $item_semana11 = trim($item_semana11); 
+                    echo "\\item " . $item_semana11 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana11 \\\ \n";
+            echo "\\hline \n";
+                echo "Cuarta \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana12 as $item_semana12) {
+                    $item_semana12 = trim($item_semana12); 
+                    echo "\\item " . $item_semana12 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana12 \\\ \n";
+            echo "\\hline \n";
+        echo "\\end{tabular}\n";
+    echo "\\end{table}\n";
+
+    echo "\\subsection{Unidad de aprendizaje IV:(\"$und4\")}\n";
+    echo "\\begin{table}[ht]\n";
+        echo "\\centering\n";
+        echo "\\begin{tabular}{|c|c|c|}\n";
+            echo "\\hline\n";
+                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            echo "\\hline\n";
+                echo "Primera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana13 as $item_semana13) {
+                    $item_semana13 = trim($item_semana13); 
+                    echo "\\item " . $item_semana13 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana13\\\ \n";
+            echo "\\hline \n";
+                echo "Segunda \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana14 as $item_semana14) {
+                    $item_semana14 = trim($item_semana14); 
+                    echo "\\item " . $item_semana14 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana14\\\ \n";
+            echo "\\hline \n";
+                echo "Tercera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana15 as $item_semana15) {
+                    $item_semana15 = trim($item_semana15); 
+                    echo "\\item " . $item_semana15 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana15 \\\ \n";
+            echo "\\hline \n";
+                echo "Cuarta \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana16 as $item_semana16) {
+                    $item_semana16 = trim($item_semana16); 
+                    echo "\\item " . $item_semana16 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana16 \\\ \n";
             echo "\\hline \n";
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
