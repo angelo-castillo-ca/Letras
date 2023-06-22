@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_TIME, 'es_ES.utf8');
 include('connection.php');
 $id=$_GET['id'];
 
@@ -48,6 +49,31 @@ if ($result->num_rows > 0) {
     $items_semana3 = preg_split('/\R/', $semana3);
     $semana4 = $dato_silabo["Semana4"];
     $items_semana4 = preg_split('/\R/', $semana4);
+    $fecha_semana1 = date('d-m',strtotime($fech_ini));
+    $fecha_semana2 = date('d-m', strtotime($fech_ini. ' + 1 weeks'));
+    $fecha_semana3 = date('d-m', strtotime($fech_ini. ' + 2 weeks'));
+    $fecha_semana4 = date('d-m', strtotime($fech_ini. ' + 3 weeks'));
+    $und2 = $dato_silabo["Unidad2"];
+    $semana5 = $dato_silabo["Semana5"];
+    $items_semana5 = preg_split('/\R/', $semana5);
+    $semana6 = $dato_silabo["Semana6"];
+    $items_semana6 = preg_split('/\R/', $semana6);
+    $semana7 = $dato_silabo["Semana7"];
+    $items_semana7 = preg_split('/\R/', $semana7);
+    $semana8 = $dato_silabo["Semana8"];
+    $items_semana8 = preg_split('/\R/', $semana8);
+    $fecha_semana5 = date('d-m', strtotime($fech_ini. ' + 4 weeks'));
+    $fecha_semana6 = date('d-m', strtotime($fech_ini. ' + 5 weeks'));
+    $fecha_semana7 = date('d-m', strtotime($fech_ini. ' + 6 weeks'));
+    $fecha_semana8 = date('d-m', strtotime($fech_ini. ' + 7 weeks'));
+    $fecha_semana9 = date('d-m', strtotime($fech_ini. ' + 8 weeks'));
+    $fecha_semana10 = date('d-m', strtotime($fech_ini. ' + 9 weeks'));
+    $fecha_semana11 = date('d-m', strtotime($fech_ini. ' + 10 weeks'));
+    $fecha_semana12 = date('d-m', strtotime($fech_ini. ' + 11 weeks'));
+    $fecha_semana13 = date('d-m', strtotime($fech_ini. ' + 12 weeks'));
+    $fecha_semana14 = date('d-m', strtotime($fech_ini. ' + 13 weeks'));
+    $fecha_semana15 = date('d-m', strtotime($fech_ini. ' + 14 weeks'));
+    $fecha_semana16 = date('d-m', strtotime($fech_ini. ' + 15 weeks'));
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass[a4paper]{article}\n";
@@ -128,8 +154,8 @@ if ($result->num_rows > 0) {
     echo "\\end{flushleft}\n";
 
     echo "\\section{CONTENIDO TEMÁTICO}\n";
-    echo "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
 
+    echo "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
     echo "\\begin{table}[ht]\n";
         echo "\\centering\n";
         echo "\\begin{tabular}{|c|c|c|}\n";
@@ -144,7 +170,7 @@ if ($result->num_rows > 0) {
                     echo "\\item " . $item_semana1 . "\n";
                 }
                 echo "\\end{itemize}\n";
-                echo "\\end{minipage} & Celda 6 \\\ \n";
+                echo "\\end{minipage} & $fecha_semana1\\\ \n";
             echo "\\hline \n";
                 echo "Segunda \n";
                 echo "& \begin{minipage}[t]{9cm}\n";
@@ -154,7 +180,7 @@ if ($result->num_rows > 0) {
                     echo "\\item " . $item_semana2 . "\n";
                 }
                 echo "\\end{itemize}\n";
-                echo "\\end{minipage} & Celda 9 \\\ \n";
+                echo "\\end{minipage} & $fecha_semana2\\\ \n";
             echo "\\hline \n";
                 echo "Tercera \n";
                 echo "& \begin{minipage}[t]{9cm}\n";
@@ -164,7 +190,7 @@ if ($result->num_rows > 0) {
                     echo "\\item " . $item_semana3 . "\n";
                 }
                 echo "\\end{itemize}\n";
-                echo "\\end{minipage} & Celda 12 \\\ \n";
+                echo "\\end{minipage} & $fecha_semana3 \\\ \n";
             echo "\\hline \n";
                 echo "Cuarta \n";
                 echo "& \begin{minipage}[t]{9cm}\n";
@@ -174,11 +200,61 @@ if ($result->num_rows > 0) {
                     echo "\\item " . $item_semana4 . "\n";
                 }
                 echo "\\end{itemize}\n";
-                echo "\\end{minipage} & Celda 15 \\\ \n";
+                echo "\\end{minipage} & $fecha_semana4 \\\ \n";
             echo "\\hline \n";
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
     
+    echo "\\subsection{Unidad de aprendizaje I:(\"$und2\")}\n";
+    echo "\\begin{table}[ht]\n";
+        echo "\\centering\n";
+        echo "\\begin{tabular}{|c|c|c|}\n";
+            echo "\\hline\n";
+                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            echo "\\hline\n";
+                echo "Primera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana5 as $item_semana5) {
+                    $item_semana5 = trim($item_semana5); 
+                    echo "\\item " . $item_semana5 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana5\\\ \n";
+            echo "\\hline \n";
+                echo "Segunda \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana6 as $item_semana6) {
+                    $item_semana6 = trim($item_semana6); 
+                    echo "\\item " . $item_semana6 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana6\\\ \n";
+            echo "\\hline \n";
+                echo "Tercera \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana7 as $item_semana7) {
+                    $item_semana7 = trim($item_semana7); 
+                    echo "\\item " . $item_semana7 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana7 \\\ \n";
+            echo "\\hline \n";
+                echo "Cuarta \n";
+                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "\\begin{itemize}\n";
+                foreach ($items_semana8 as $item_semana8) {
+                    $item_semana4 = trim($item_semana8); 
+                    echo "\\item " . $item_semana8 . "\n";
+                }
+                echo "\\end{itemize}\n";
+                echo "\\end{minipage} & $fecha_semana8 \\\ \n";
+            echo "\\hline \n";
+        echo "\\end{tabular}\n";
+    echo "\\end{table}\n";
+
     echo "\\end{document}\n";
 } else {
     echo "No se encontraron resultados.";

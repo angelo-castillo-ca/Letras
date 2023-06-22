@@ -83,11 +83,11 @@
         </div>
         <div class="nb-3">
           <label class="form-label" for="fechaini">Fecha de inicio:</label>
-          <input type="text" class="form-control" id="fechaini" name="fechaini"><br>
+          <input type="date" class="form-control" id="fechaini" name="fechaini"><br>
         </div>
         <div class="nb-3">
           <label class="form-label" for="fechafin">Fecha de fin:</label>
-          <input type="text" class="form-control" id="fechafin" name="fechafin"><br>
+          <input type="date" class="form-control" id="fechafin" name="fechafin"><br>
         </div>
         <div class="nb-3">
           <label class="form-label" for="locaul">Local y Aula:</label>
