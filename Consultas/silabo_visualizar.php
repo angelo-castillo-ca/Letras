@@ -92,9 +92,12 @@ if ($result->num_rows > 0) {
     $fecha_semana14 = date('d-m', strtotime($fech_ini. ' + 13 weeks'));
     $fecha_semana15 = date('d-m', strtotime($fech_ini. ' + 14 weeks'));
     $fecha_semana16 = date('d-m', strtotime($fech_ini. ' + 15 weeks'));
+    $refrencias = $dato_silabo["Referencias"];
+    $items_referencias = preg_split('/\R/', $refrencias);
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass[a4paper]{article}\n";
+    echo "\\usepackage{hyperref}\n";
     echo "\\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}\n";
     echo "\\usepackage{graphicx}\n";
     echo "\\begin{document}\n";
@@ -133,9 +136,10 @@ if ($result->num_rows > 0) {
 
         echo "\\vspace{2cm}\n";
         echo "\\begin{center}\n";
-            echo "{\large $semestre}\\\[0.3cm]\n";
+            echo "{\huge \bf $semestre}\\\[0.3cm]\n";
         echo "\\end{center}\n";
     echo "\\end{titlepage}\n";
+    echo "\\newpage\n";
 
     echo "\\section{INFORMACION GENERAL}\n";
         echo "1.1. Nombre de la asignatura :$nom_asig \\\ \n";
@@ -166,9 +170,10 @@ if ($result->num_rows > 0) {
                 echo "\\item " . $item_comp_esp . "\n";
             }  
             echo "\\end{itemize}\n"; 
-
+   
+    echo "\\newpage\n";
     echo "\\begin{flushleft}\n";
-            echo "ASIGNATURA \\\ \n";
+        echo "{\huge \bf ASIGNATURA}\\\[0.3cm]\n";
     echo "\\end{flushleft}\n";
 
     echo "\\section{CONTENIDO TEMÁTICO}\n";
@@ -221,8 +226,9 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana4 \\\ \n";
             echo "\\hline \n";
         echo "\\end{tabular}\n";
-    echo "\\end{table} \\\ \n";
-    
+    echo "\\end{table} \n";
+
+    echo "\\newpage\n";
     echo "\\subsection{Unidad de aprendizaje II:(\"$und2\")}\n";
     echo "\\begin{table}[ht]\n";
         echo "\\centering\n";
@@ -273,6 +279,7 @@ if ($result->num_rows > 0) {
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
 
+    echo "\\newpage\n";
     echo "\\subsection{Unidad de aprendizaje III:(\"$und3\")}\n";
     echo "\\begin{table}[ht]\n";
         echo "\\centering\n";
@@ -323,6 +330,7 @@ if ($result->num_rows > 0) {
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
 
+    echo "\\newpage\n";
     echo "\\subsection{Unidad de aprendizaje IV:(\"$und4\")}\n";
     echo "\\begin{table}[ht]\n";
         echo "\\centering\n";
@@ -372,8 +380,40 @@ if ($result->num_rows > 0) {
             echo "\\hline \n";
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
-
+    echo "\\section REFERENCIAS\n";
+    echo "\\begin{itemize}\n";
+    foreach ($items_referencias as $item_referencia) {
+        $item_referencia = trim($item_referencia);
+        
+        // Verifica si la cadena contiene una URL utilizando preg_match
+        if (preg_match("#\bhttps?://\S+\b#i", $item_referencia, $matches)) {
+            $url = $matches[0];
+            
+            // Agrega el prefijo "https://" si no está presente en la URL
+            if (!preg_match("#^https?://#i", $url)) {
+                $url = "https://" . $url;
+            }
+            
+            // Elimina la URL de la cadena original
+            $texto_sin_url = str_replace($url, '', $item_referencia);
+            
+            // Escapa los caracteres especiales de LaTeX en el texto sin la URL
+            $texto_sin_url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $texto_sin_url);
+            
+            // Escapa los caracteres especiales de LaTeX en la URL
+            $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
+            
+            // Imprime el ítem de referencia con el texto sin la URL
+            echo "\\item $texto_sin_url (\\url{{$url}})\n";
+        } else {
+            // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
+            echo "\\item $item_referencia\n";
+        }
+    }
+    
+    echo "\\end{itemize}\n";
     echo "\\end{document}\n";
+    
 } else {
     echo "No se encontraron resultados.";
 }
