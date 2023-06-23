@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.6.22)  23 JUN 2023 00:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.6.22)  23 JUN 2023 00:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -255,7 +255,21 @@ File: logo UNMSM.png Graphic file (type png)
 <use logo UNMSM.png>
 Package pdftex.def Info: logo UNMSM.png  used on input line 8.
 (pdftex.def)             Requested size: 85.35696pt x 100.75688pt.
- [1
+
+
+c:/wamp64/www/Letras/Documentos/codigo_latex_silabo.tex:35: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 {\huge \bf }\\
+                   [0.3cm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
 
 {C:/Users/Angelo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo UNMSM.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 40--55
@@ -266,43 +280,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--55
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.76 \newpage
+l.64 \newpage
               [1]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 84.
+(Font)              <7> on input line 72.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 84.
+(Font)              <5> on input line 72.
  [2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
 
-Overfull \hbox (0.30087pt too wide) in paragraph at lines 266--267
-[]\OT1/cmr/m/n/10 Burke, Pe-ter (2008). \C^^Somo in-ter-rogar a los tes-ti-mo-nios vi-suales". ([]$\OT1/cmtt/m/n/10 https : / / www . academia .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
-[5] [6] (c:\wamp64\www\Letras\Documentos\build\codigo_latex_silabo.aux)
-Package rerunfilecheck Info: File `codigo_latex_silabo.out' has not changed.
-(rerunfilecheck)             Checksum: 132E3A7B59A491E5C3952678E14C8C12;3706.
+[5] (c:\wamp64\www\Letras\Documentos\build\codigo_latex_silabo.aux)
+
+Package rerunfilecheck Warning: File `codigo_latex_silabo.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `codigo_latex_silabo.out':
+(rerunfilecheck)             Before: 132E3A7B59A491E5C3952678E14C8C12;3706
+(rerunfilecheck)             After:  FB56940E17A209E08D9A9E9F6276E638;2980.
  ) 
 Here is how much of TeX's memory you used:
- 8649 strings out of 476331
- 138078 string characters out of 5797577
- 1863660 words of memory out of 5000000
- 28987 multiletter control sequences out of 15000+600000
- 514914 words of font info for 41 fonts, out of 8000000 for 9000
+ 8641 strings out of 476331
+ 138009 string characters out of 5797577
+ 1860660 words of memory out of 5000000
+ 28981 multiletter control sequences out of 15000+600000
+ 514746 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,76p,606b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Angelo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on c:\wamp64\www\Letras\Documentos\build\codigo_latex_silabo.pdf (7 pages, 556344 bytes).
+ 75i,11n,76p,606b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Angelo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on c:\wamp64\www\Letras\Documentos\build\codigo_latex_silabo.pdf (6 pages, 527964 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
+ 128 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
  134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

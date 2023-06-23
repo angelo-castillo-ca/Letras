@@ -30,49 +30,36 @@
       </div>
     </header>
   </div>
-
-  <form action="Consultas/consulta-silabo.php"></form>
-    <div class="container">
-      <div class="row"> 
-        <div class="col">
-          <label>
-            <select name="" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form action="Consultas/consulta-silabo.php" class="p-4 shadow rounded bg-light">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="selectAsignatura" class="form-label">Asignatura:</label>
+            <select name="selectAsignatura" id="selectAsignatura" class="form-select form-select-lg" aria-label=".form-select-lg example">
               <?php
                 include 'Consultas/connection.php';
-                $consulta_asiganatura="SELECT Nombre FROM Asignatura";
-                $ejecutar_consulta_asignatura=mysqli_query($conexion,$consulta_asiganatura) or die(mysqli_error($conexion));
+                $consulta_asignatura = "SELECT A.Nombre FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura";
+                $ejecutar_consulta_asignatura = mysqli_query($conexion, $consulta_asignatura) or die(mysqli_error($conexion));
               ?>
-              <?php foreach($ejecutar_consulta_asignatura as $opciones_ejecutar_consulta_asigantura):?>
-                <option>
-                  <?php echo $opciones_ejecutar_consulta_asigantura['Nombre']?>
+              <?php foreach ($ejecutar_consulta_asignatura as $opciones_ejecutar_consulta_asignatura): ?>
+                <option value="<?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>">
+                  <?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>
                 </option>
               <?php endforeach ?>
             </select>
-          </label>
+          </div>
         </div>
-        <div class="col">
-          <label>
-            <select name="" id="" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-              <option value="value1">2018-I</option>
-              <option value="value2">2018-II</option>
-              <option value="value3">2019-I</option>
-              <option value="value4">2019-II</option>
-              <option value="value5">2020-I</option>
-              <option value="value5">2020-II</option>
-              <option value="value6">2021-I</option>
-              <option value="value7">2021-II</option>
-              <option value="value8">2022-I</option>
-              <option value="value9">2022-II</option>
-              <option value="value10" selected>2023-I</option>
-              <option value="value11">2023-II</option>
-            </select>
-          </label>
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #0a587c">Consultar</button>
+          </div>
         </div>
-        <div class="col">
-          <button type="submit" class="btn btn-primary">Consultar</button>
-        </div>
-      </div>
+      </form>
     </div>
-  </form>
+  </div>
+</div>
+
 </body>
 </html>
