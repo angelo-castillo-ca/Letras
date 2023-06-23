@@ -366,11 +366,11 @@ if(isset($_POST['enviar'])){
         </div>
         <div class="nb-3">
           <label class="form-label" for="promf">Promedio final obtenido:</label>
-          <input type="text" class="form-control" id="promf" name="promf" value="<?php echo $promf; ?>"><br>
+          <textarea type="text" class="form-control" id="promf" name="promf"><?php echo $promf; ?></textarea>
         </div>
         <div class="nb-3">
           <label class="form-label" for="requisitos">Requisitos:</label>
-          <input type="text" class="form-control" id="requisitos" name="requisitos" value="<?php echo $requisitos; ?>"><br>
+          <textarea type="text" class="form-control" id="requisitos" name="requisitos" ><?php echo $requisitos; ?></textarea>
         </div>
             <input type="submit" name="enviar" value="Actualizar" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c">
         </form> 

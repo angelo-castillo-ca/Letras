@@ -96,294 +96,308 @@ if ($result->num_rows > 0) {
     $items_referencias = preg_split('/\R/', $refrencias);
     $recur_elc = $dato_silabo["RecursosElectronicos"];
     $items_rec_elc = preg_split('/\R/', $recur_elc);
+    $estr_met = $dato_silabo["EstrategiasMetologias"];
+    $items_estr_met = preg_split('/\R/', $estr_met);
+    $estr_met_util = $dato_silabo["EstrategiasMetologiasUtil"];
+    $items_estr_met_util = preg_split('/\R/', $estr_met_util);
+    $modali_eva = $dato_silabo["ModaliEvaluacion"];
+    $items_modali_eva = preg_split('/\R/', $modali_eva);
+    $nota1 = $dato_silabo["Nota1"];
+    $nota2 = $dato_silabo["Nota2"];
+    $nota3 = $dato_silabo["Nota3"];
+    $prom_fin = str_replace('%', '\%',$dato_silabo["PromFin"]);
+    $items_prom_fin = preg_split('/\R/', $prom_fin);
+    $requisitos = str_replace('%', '\%',$dato_silabo["Requisitos"]);
+    $items_requisitos = preg_split('/\R/', $requisitos);
 
     // Generar el código LaTeX con los datos obtenidos
-    echo "\\documentclass[a4paper]{article}\n";
-    echo "\\usepackage{hyperref}\n";
-    echo "\\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}\n";
-    echo "\\usepackage{graphicx}\n";
-    echo "\\begin{document}\n";
-    echo "\\begin{titlepage}\n";
+    $codio_latex =  "\\documentclass[a4paper]{article}\n";
+    $codio_latex .=  "\\usepackage{hyperref}\n";
+    $codio_latex .=  "\\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}\n";
+    $codio_latex .=  "\\usepackage{graphicx}\n";
+    $codio_latex .=  "\\begin{document}\n";
+    $codio_latex .=  "\\begin{titlepage}\n";
 
-        echo "\\begin{center}\n";
-            echo "\\includegraphics[width=0.2\\textwidth]{logo UNMSM.png}\n";
-        echo "\\end{center}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .=  "\\includegraphics[width=0.2\\textwidth]{logo UNMSM.png}\n";
+        $codio_latex .=  "\\end{center}\n";
         
-        echo "\\begin{center}\n";
-            echo "{\huge \bf Universidad Nacional Mayor de San Marcos}\\\[0.3cm]\n";
-            echo "{\large \bf Universidad del Perú. Decana de América}\\\[0.5cm]\n";
-        echo "\\end{center}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .=  "{\huge \bf Universidad Nacional Mayor de San Marcos}\\\[0.3cm]\n";
+            $codio_latex .=  "{\large \bf Universidad del Perú. Decana de América}\\\[0.5cm]\n";
+        $codio_latex .=  "\\end{center}\n";
 
-        echo "\\vspace{0.5cm}\n";
-        echo "\\begin{center}\n";
-            echo"\\large{FACULTAD DE LETRAS Y CIENCIAS HUMANAS}\n";
-            echo"\\large{UNIDAD DE POSGRADO}\n";
-        echo "\\end{center}\n";
+        $codio_latex .=  "\\vspace{0.5cm}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .= "\\large{FACULTAD DE LETRAS Y CIENCIAS HUMANAS}\n";
+            $codio_latex .= "\\large{UNIDAD DE POSGRADO}\n";
+        $codio_latex .=  "\\end{center}\n";
 
-        echo "\\vspace{0.5cm}\n";
-        echo "\\begin{center}\n";
-            echo "{\large $programa con mencion en $mencion}\\\[0.3cm]\n";
-        echo "\\end{center}\n";
+        $codio_latex .=  "\\vspace{0.5cm}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .=  "{\large $programa con mencion en $mencion}\\\[0.3cm]\n";
+        $codio_latex .=  "\\end{center}\n";
 
-        echo "\\vspace{0.10cm}\n";
-        echo "\\begin{center}\n";
-            echo "{\huge \bf SILABO}\\\[0.3cm]\n";
-        echo "\\end{center}\n";
+        $codio_latex .=  "\\vspace{0.10cm}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .=  "{\huge \bf SILABO}\\\[0.3cm]\n";
+        $codio_latex .=  "\\end{center}\n";
+        
+        $codio_latex .=  "\\vspace{2cm}\n";
+        $codio_latex .=  "\\begin{flushleft}\n";
+            $codio_latex .=  "Nombre de la asignatura: $nom_asig \\\ \n";
+            $codio_latex .=  "Profesor responsable: $nom_doc $ape_doc \\\ \n";
+            $codio_latex .=  "Correo Electronico: $correo \\\ \n";
+        $codio_latex .=  "\\end{flushleft}\n";
 
-        echo "\\begin{flushleft}\n";
-            echo "Nombre de la asignatura: $nom_asig \\\ \n";
-            echo "Profesor responsable: $nom_doc $ape_doc \\\ \n";
-            echo "Correo Electronico: $correo \\\ \n";
-        echo "\\end{flushleft}\n";
+        $codio_latex .=  "\\vspace{2cm}\n";
+        $codio_latex .=  "\\begin{center}\n";
+            $codio_latex .=  "{\huge \bf $semestre}\\\[0.3cm]\n";
+        $codio_latex .=  "\\end{center}\n";
+    $codio_latex .=  "\\end{titlepage}\n";
+    $codio_latex .=  "\\newpage\n";
 
-        echo "\\vspace{2cm}\n";
-        echo "\\begin{center}\n";
-            echo "{\huge \bf $semestre}\\\[0.3cm]\n";
-        echo "\\end{center}\n";
-    echo "\\end{titlepage}\n";
-    echo "\\newpage\n";
+    $codio_latex .=  "\\section{INFORMACION GENERAL}\n";
+        $codio_latex .=  "1.1. Nombre de la asignatura :$nom_asig \\\ \n";
+        $codio_latex .=  "1.2. Tipo de asignatura : $tipo_asig \\\ \n";
+        $codio_latex .=  "1.3. Profesor(a) : $nom_doc  \\\ \n";
+        $codio_latex .=  "1.4. Programa : $programa \\\ \n";
+        $codio_latex .=  "1.5. Mención : $mencion \\\ \n";
+        $codio_latex .=  "1.6. Código de asignatura : $cod_asig \\\ \n";
+        $codio_latex .=  "1.7. Créditos : $credt_Asig  \\\ \n";
+        $codio_latex .=  "1.8. N° de horas semanales : $tmp_asig \\\ \n";
+        $codio_latex .=  "1.9. N° de horas por semestre : $tmp_sem horas \\\ \n";
+        $codio_latex .=  "1.10. Semestre académico : $semestre \\\ \n";
+        $codio_latex .=  "1.11. Duración : $duracion semanas \\\ \n";
+        $codio_latex .=  "1.12. Fecha de inicio : $fech_ini \\\ \n";
+        $codio_latex .=  "1.13. Fecha de finalización : $fech_fin \\\ \n";
+        $codio_latex .=  "1.14. Local y aula : $locaul \\\ \n";
+        $codio_latex .=  "1.15. Horario : $horario \\\ \n";
 
-    echo "\\section{INFORMACION GENERAL}\n";
-        echo "1.1. Nombre de la asignatura :$nom_asig \\\ \n";
-        echo "1.2. Tipo de asignatura : $tipo_asig \\\ \n";
-        echo "1.3. Profesor(a) : $nom_doc  \\\ \n";
-        echo "1.4. Programa : $programa \\\ \n";
-        echo "1.5. Mención : $mencion \\\ \n";
-        echo "1.6. Código de asignatura : $cod_asig \\\ \n";
-        echo "1.7. Créditos : $credt_Asig  \\\ \n";
-        echo "1.8. N° de horas semanales : $tmp_asig \\\ \n";
-        echo "1.9. N° de horas por semestre : $tmp_sem horas \\\ \n";
-        echo "1.10. Semestre académico : $semestre \\\ \n";
-        echo "1.11. Duración : $duracion semanas \\\ \n";
-        echo "1.12. Fecha de inicio : $fech_ini \\\ \n";
-        echo "1.13. Fecha de finalización : $fech_fin \\\ \n";
-        echo "1.14. Local y aula : $locaul \\\ \n";
-        echo "1.15. Horario : $horario \\\ \n";
-
-    echo "\\section{FUNDAMENTOS DE LA ASIGNATURA}\n";
-        echo "\\subsection{Sumilla}\n";
-            echo "$sumilla\n";
-        echo "\\subsection{Competencia General}\n";
-            echo "$comp_gen\n";
-        echo "\\subsection{Competencias Especificas}\n";
-            echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\section{FUNDAMENTOS DE LA ASIGNATURA}\n";
+        $codio_latex .=  "\\subsection{Sumilla}\n";
+            $codio_latex .=  "$sumilla\n";
+        $codio_latex .=  "\\subsection{Competencia General}\n";
+            $codio_latex .=  "$comp_gen\n";
+        $codio_latex .=  "\\subsection{Competencias Especificas}\n";
+            $codio_latex .=  "\\begin{itemize}\n";
             foreach ($items_comp_esp as $item_comp_esp) {
                 $item_comp_esp = trim($item_comp_esp); 
-                echo "\\item " . $item_comp_esp . "\n";
+                $codio_latex .=  "\\item " . $item_comp_esp . "\n";
             }  
-            echo "\\end{itemize}\n"; 
+            $codio_latex .=  "\\end{itemize}\n"; 
    
-    echo "\\newpage\n";
-    echo "\\begin{flushleft}\n";
-        echo "{\huge \bf ASIGNATURA}\\\[0.3cm]\n";
-    echo "\\end{flushleft}\n";
+    $codio_latex .=  "\\newpage\n";
+    $codio_latex .=  "\\begin{flushleft}\n";
+        $codio_latex .=  "{\huge \bf ASIGNATURA}\\\[0.3cm]\n";
+    $codio_latex .=  "\\end{flushleft}\n";
 
-    echo "\\section{CONTENIDO TEMÁTICO}\n";
+    $codio_latex .=  "\\section{CONTENIDO TEMÁTICO}\n";
 
-    echo "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
-    echo "\\begin{table}[ht]\n";
-        echo "\\centering\n";
-        echo "\\begin{tabular}{|c|c|c|}\n";
-            echo "\\hline\n";
-                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
-            echo "\\hline\n";
-                echo "Primera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\subsection{Unidad de aprendizaje I:(\"$und1\")}\n";
+    $codio_latex .=  "\\begin{table}[ht]\n";
+        $codio_latex .=  "\\centering\n";
+        $codio_latex .=  "\\begin{tabular}{|c|c|c|}\n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "Primera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana1 as $item_semana1) {
                     $item_semana1 = trim($item_semana1); 
-                    echo "\\item " . $item_semana1 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana1 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana1\\\ \n";
-            echo "\\hline \n";
-                echo "Segunda \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana1\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Segunda \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana2 as $item_semana2) {
                     $item_semana2 = trim($item_semana2); 
-                    echo "\\item " . $item_semana2 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana2 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana2\\\ \n";
-            echo "\\hline \n";
-                echo "Tercera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana2\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Tercera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana3 as $item_semana3) {
                     $item_semana2 = trim($item_semana3); 
-                    echo "\\item " . $item_semana3 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana3 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana3 \\\ \n";
-            echo "\\hline \n";
-                echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana3 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Cuarta \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana4 as $item_semana4) {
                     $item_semana4 = trim($item_semana4); 
-                    echo "\\item " . $item_semana4 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana4 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana4 \\\ \n";
-            echo "\\hline \n";
-        echo "\\end{tabular}\n";
-    echo "\\end{table} \n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana4 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+        $codio_latex .=  "\\end{tabular}\n";
+    $codio_latex .=  "\\end{table} \n";
 
-    echo "\\newpage\n";
-    echo "\\subsection{Unidad de aprendizaje II:(\"$und2\")}\n";
-    echo "\\begin{table}[ht]\n";
-        echo "\\centering\n";
-        echo "\\begin{tabular}{|c|c|c|}\n";
-            echo "\\hline\n";
-                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
-            echo "\\hline\n";
-                echo "Primera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\newpage\n";
+    $codio_latex .=  "\\subsection{Unidad de aprendizaje II:(\"$und2\")}\n";
+    $codio_latex .=  "\\begin{table}[ht]\n";
+        $codio_latex .=  "\\centering\n";
+        $codio_latex .=  "\\begin{tabular}{|c|c|c|}\n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "Primera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana5 as $item_semana5) {
                     $item_semana5 = trim($item_semana5); 
-                    echo "\\item " . $item_semana5 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana5 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana5\\\ \n";
-            echo "\\hline \n";
-                echo "Segunda \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana5\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Segunda \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana6 as $item_semana6) {
                     $item_semana6 = trim($item_semana6); 
-                    echo "\\item " . $item_semana6 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana6 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana6\\\ \n";
-            echo "\\hline \n";
-                echo "Tercera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana6\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Tercera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana7 as $item_semana7) {
                     $item_semana7 = trim($item_semana7); 
-                    echo "\\item " . $item_semana7 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana7 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana7 \\\ \n";
-            echo "\\hline \n";
-                echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana7 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Cuarta \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana8 as $item_semana8) {
                     $item_semana4 = trim($item_semana8); 
-                    echo "\\item " . $item_semana8 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana8 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana8 \\\ \n";
-            echo "\\hline \n";
-        echo "\\end{tabular}\n";
-    echo "\\end{table}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana8 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+        $codio_latex .=  "\\end{tabular}\n";
+    $codio_latex .=  "\\end{table}\n";
 
-    echo "\\newpage\n";
-    echo "\\subsection{Unidad de aprendizaje III:(\"$und3\")}\n";
-    echo "\\begin{table}[ht]\n";
-        echo "\\centering\n";
-        echo "\\begin{tabular}{|c|c|c|}\n";
-            echo "\\hline\n";
-                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
-            echo "\\hline\n";
-                echo "Primera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\newpage\n";
+    $codio_latex .=  "\\subsection{Unidad de aprendizaje III:(\"$und3\")}\n";
+    $codio_latex .=  "\\begin{table}[ht]\n";
+        $codio_latex .=  "\\centering\n";
+        $codio_latex .=  "\\begin{tabular}{|c|c|c|}\n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "Primera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana9 as $item_semana9) {
                     $item_semana9 = trim($item_semana9); 
-                    echo "\\item " . $item_semana9 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana9 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana9\\\ \n";
-            echo "\\hline \n";
-                echo "Segunda \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana9\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Segunda \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana10 as $item_semana10) {
                     $item_semana10 = trim($item_semana10); 
-                    echo "\\item " . $item_semana10 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana10 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana10\\\ \n";
-            echo "\\hline \n";
-                echo "Tercera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana10\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Tercera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana11 as $item_semana11) {
                     $item_semana11 = trim($item_semana11); 
-                    echo "\\item " . $item_semana11 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana11 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana11 \\\ \n";
-            echo "\\hline \n";
-                echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana11 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Cuarta \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana12 as $item_semana12) {
                     $item_semana12 = trim($item_semana12); 
-                    echo "\\item " . $item_semana12 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana12 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana12 \\\ \n";
-            echo "\\hline \n";
-        echo "\\end{tabular}\n";
-    echo "\\end{table}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana12 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+        $codio_latex .=  "\\end{tabular}\n";
+    $codio_latex .=  "\\end{table}\n";
 
-    echo "\\newpage\n";
-    echo "\\subsection{Unidad de aprendizaje IV:(\"$und4\")}\n";
-    echo "\\begin{table}[ht]\n";
-        echo "\\centering\n";
-        echo "\\begin{tabular}{|c|c|c|}\n";
-            echo "\\hline\n";
-                echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
-            echo "\\hline\n";
-                echo "Primera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\newpage\n";
+    $codio_latex .=  "\\subsection{Unidad de aprendizaje IV:(\"$und4\")}\n";
+    $codio_latex .=  "\\begin{table}[ht]\n";
+        $codio_latex .=  "\\centering\n";
+        $codio_latex .=  "\\begin{tabular}{|c|c|c|}\n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
+            $codio_latex .=  "\\hline\n";
+                $codio_latex .=  "Primera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana13 as $item_semana13) {
                     $item_semana13 = trim($item_semana13); 
-                    echo "\\item " . $item_semana13 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana13 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana13\\\ \n";
-            echo "\\hline \n";
-                echo "Segunda \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana13\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Segunda \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana14 as $item_semana14) {
                     $item_semana14 = trim($item_semana14); 
-                    echo "\\item " . $item_semana14 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana14 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana14\\\ \n";
-            echo "\\hline \n";
-                echo "Tercera \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana14\\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Tercera \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana15 as $item_semana15) {
                     $item_semana15 = trim($item_semana15); 
-                    echo "\\item " . $item_semana15 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana15 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana15 \\\ \n";
-            echo "\\hline \n";
-                echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{10cm}\n";
-                echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana15 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "Cuarta \n";
+                $codio_latex .=  "& \begin{minipage}[t]{10cm}\n";
+                $codio_latex .=  "\\begin{itemize}\n";
                 foreach ($items_semana16 as $item_semana16) {
                     $item_semana16 = trim($item_semana16); 
-                    echo "\\item " . $item_semana16 . "\n";
+                    $codio_latex .=  "\\item " . $item_semana16 . "\n";
                 }
-                echo "\\end{itemize}\n";
-                echo "\\end{minipage} & $fecha_semana16 \\\ \n";
-            echo "\\hline \n";
-        echo "\\end{tabular}\n";
-    echo "\\end{table}\n";
-    echo "{\huge \bf REFERENCIAS}\\\[0.3cm]\n";
-    echo "\\begin{itemize}\n";
+                $codio_latex .=  "\\end{itemize}\n";
+                $codio_latex .=  "\\end{minipage} & $fecha_semana16 \\\ \n";
+            $codio_latex .=  "\\hline \n";
+        $codio_latex .=  "\\end{tabular}\n";
+    $codio_latex .=  "\\end{table}\n";
+    $codio_latex .=  "{\huge \bf REFERENCIAS}\\\[0.3cm]\n";
+    $codio_latex .=  "\\begin{itemize}\n";
         foreach ($items_referencias as $item_referencia) {
             $item_referencia = trim($item_referencia);
             
@@ -406,17 +420,17 @@ if ($result->num_rows > 0) {
                 $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
                 
                 // Imprime el ítem de referencia con el texto sin la URL
-                echo "\\item $texto_sin_url (\\url{{$url}})\n";
+                $codio_latex .=  "\\item $texto_sin_url (\\url{{$url}})\n";
             } else {
                 // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
-                echo "\\item $item_referencia\n";
+                $codio_latex .=  "\\item $item_referencia\n";
             }
         }
-    echo "\\end{itemize}\n";
+    $codio_latex .=  "\\end{itemize}\n";
 
-    echo "{\huge \bf Recursos electrónicos:}\\\[0.3cm]\n";
+    $codio_latex .=  "{\huge \bf Recursos electrónicos:}\\\[0.3cm]\n";
 
-    echo "\\begin{itemize}\n";
+    $codio_latex .=  "\\begin{itemize}\n";
         foreach ($items_rec_elc as $item_rec_elc) {
             $item_rec_elc = trim($item_rec_elc);
             
@@ -439,25 +453,85 @@ if ($result->num_rows > 0) {
                 $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
                 
                 // Imprime el ítem de referencia con el texto sin la URL
-                echo "\\item $texto_sin_url (\\url{{$url}})\n";
+                $codio_latex .=  "\\item $texto_sin_url (\\url{{$url}})\n";
             } else {
                 // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
-                echo "\\item $item_rec_elc\n";
+                $codio_latex .=  "\\item $item_rec_elc\n";
             }
         }
-    echo "\\end{itemize}\n";
+    $codio_latex .=  "\\end{itemize}\n";
 
-    echo "\\section {ESTRATEGIAS METODOLÓGICAS}\n";
-    echo "\\section {ESTRATEGIAS DE EVALUACIÓN}\n";
-    echo "\\subsection {Modalidades de evaluación:}\n";
-    echo "\\subsection {Criterios de evaluación:}\n";
-    echo "\\subsection {Obtención del promedio final:}\n";
-    echo "\\subsection {Requisitos para aprobar la asignatura:}\n";
-    echo "\\end{document}\n";
+    $codio_latex .=  "\\section {ESTRATEGIAS METODOLÓGICAS}\n";
+        $codio_latex .=  "\\begin{itemize}\n";
+            foreach ($items_estr_met as $item_estr_met) {
+                $item_estr_met = trim($item_estr_met); 
+                $codio_latex .=  "\\item " . $item_estr_met . "\n";
+            }  
+        $codio_latex .=  "\\end{itemize}\n";
+        $codio_latex .=  "\\begin{itemize}\n";
+            foreach ($items_estr_met_util as $item_estr_met_util) {
+                $item_estr_met_util = trim($item_estr_met_util); 
+                $codio_latex .=  "\\item " . $item_estr_met_util . "\n";
+            }  
+        $codio_latex .=  "\\end{itemize}\n";
+    $codio_latex .=  "\\section {ESTRATEGIAS DE EVALUACIÓN}\n";
+        $codio_latex .=  "\\subsection {Modalidades de evaluación:}\n";
+            $codio_latex .=  "\\begin{itemize}\n";
+                foreach ($items_modali_eva as $item_modali_eva) {
+                    $item_modali_eva = trim($item_modali_eva); 
+                    $codio_latex .=  "\\item " . $item_modali_eva . "\n";
+                }  
+            $codio_latex .=  "\\end{itemize}\n"; 
+        $codio_latex .=  "\\subsection {Criterios de evaluación:}\n";
+        $codio_latex .=  "\\begin{table}[ht]\n";
+            $codio_latex .=  "\\centering\n";
+                $codio_latex .=  "\\begin{tabular}{|c|c|}\n";
+                    $codio_latex .=  "\\hline\n";
+                        $codio_latex .=  "\\textbf{Modalidades} & \\textbf{Porcentaje} \\\ \n";
+                    $codio_latex .=  "\\hline\n";
+                        $codio_latex .=  "1. Asistencia a clases virtuales y participación en el debate semanal & $nota1\% \\\ \n";
+                    $codio_latex .=  "\\hline\n";
+                        $codio_latex .=  "2. Exposición de la lectura asignada & $nota2\% \\\ \n";
+                    $codio_latex .=  "\\hline\n";
+                        $codio_latex .=  "3. Reseñas & $nota3\% \\\ \n";
+                    $codio_latex .=  "\\hline\n";
+                        $codio_latex .=  "Total & 100\% \\\ \n";
+                    $codio_latex .=  "\\hline \n";
+                $codio_latex .=  "\\end{tabular}\n";
+        $codio_latex .=  "\\end{table}\n";
+        $codio_latex .=  "\\subsection {Obtención del promedio final:}\n";
+            $codio_latex .=  "\\begin{itemize}\n";
+                foreach ($items_prom_fin as $item_prom_fin) {
+                    $item_prom_fin = trim($item_prom_fin); 
+                    $codio_latex .=  "\\item " . $item_prom_fin . "\n";
+                }  
+                $codio_latex .=  "\\end{itemize}\n";
+        $codio_latex .=  "\\subsection {Requisitos para aprobar la asignatura:}\n";
+            $codio_latex .=  "\\begin{itemize}\n";
+                foreach ($items_requisitos as $item_requisito) {
+                    $item_requisito = trim($item_requisito); 
+                    $codio_latex .=  "\\item " . $item_requisito . "\n";
+                }  
+                $codio_latex .=  "\\end{itemize}\n";
+        $codio_latex .=  "\\begin{flushright}\n";
+        $codio_latex .=  "Ciudad Universitaria, 06 de abril de 2022\n";
+        $codio_latex .=  "\\end{flushright}\n";    
+    $codio_latex .=  "\\end{document}\n";
     
 } else {
     echo "No se encontraron resultados.";
 }
-
+$archivo_latex = fopen("../Documentos/codigo_latex_silabo.tex", "w");
+fwrite($archivo_latex, $codio_latex);
+fclose($archivo_latex);
 $conexion->close();
+
+$archivo_pdf = '../Documentos/build/codigo_latex_silabo.pdf';
+header('Content-type: application/pdf');
+header('Content-Disposition: inline; filename="' . $archivo_pdf . '"');
+header('Content-Transfer-Encoding: binary');
+header('Accept-Ranges: bytes');
+
+@readfile($archivo_pdf);
+
 ?>

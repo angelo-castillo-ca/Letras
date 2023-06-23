@@ -223,11 +223,11 @@
         </div>
         <div class="nb-3">
           <label class="form-label" for="promf">Promedio final obtenido:</label>
-          <input type="text" class="form-control" id="promf" name="promf"><br>
+          <textarea class="form-control" id="promf" name="promf"></textarea><br>
         </div>
         <div class="nb-3">
           <label class="form-label" for="requisitos">Requisitos:</label>
-          <input type="text" class="form-control" id="requisitos" name="requisitos"><br>
+          <textarea class="form-control" id="requisitos" name="requisitos"></textarea><br>
         </div>
         <input type="submit" value="Registrar" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c">
     </form> 
