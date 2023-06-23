@@ -94,6 +94,8 @@ if ($result->num_rows > 0) {
     $fecha_semana16 = date('d-m', strtotime($fech_ini. ' + 15 weeks'));
     $refrencias = $dato_silabo["Referencias"];
     $items_referencias = preg_split('/\R/', $refrencias);
+    $recur_elc = $dato_silabo["RecursosElectronicos"];
+    $items_rec_elc = preg_split('/\R/', $recur_elc);
 
     // Generar el código LaTeX con los datos obtenidos
     echo "\\documentclass[a4paper]{article}\n";
@@ -413,6 +415,44 @@ if ($result->num_rows > 0) {
     echo "\\end{itemize}\n";
 
     echo "{\huge \bf Recursos electrónicos:}\\\[0.3cm]\n";
+
+    echo "\\begin{itemize}\n";
+        foreach ($items_rec_elc as $item_rec_elc) {
+            $item_rec_elc = trim($item_rec_elc);
+            
+            // Verifica si la cadena contiene una URL utilizando preg_match
+            if (preg_match("#\bhttps?://\S+\b#i", $item_rec_elc, $matches)) {
+                $url = $matches[0];
+                
+                // Agrega el prefijo "https://" si no está presente en la URL
+                if (!preg_match("#^https?://#i", $url)) {
+                    $url = "https://" . $url;
+                }
+                
+                // Elimina la URL de la cadena original
+                $texto_sin_url = str_replace($url, '', $item_rec_elc);
+                
+                // Escapa los caracteres especiales de LaTeX en el texto sin la URL
+                $texto_sin_url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $texto_sin_url);
+                
+                // Escapa los caracteres especiales de LaTeX en la URL
+                $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
+                
+                // Imprime el ítem de referencia con el texto sin la URL
+                echo "\\item $texto_sin_url (\\url{{$url}})\n";
+            } else {
+                // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
+                echo "\\item $item_rec_elc\n";
+            }
+        }
+    echo "\\end{itemize}\n";
+
+    echo "\\section {ESTRATEGIAS METODOLÓGICAS}\n";
+    echo "\\section {ESTRATEGIAS DE EVALUACIÓN}\n";
+    echo "\\subsection {Modalidades de evaluación:}\n";
+    echo "\\subsection {Criterios de evaluación:}\n";
+    echo "\\subsection {Obtención del promedio final:}\n";
+    echo "\\subsection {Requisitos para aprobar la asignatura:}\n";
     echo "\\end{document}\n";
     
 } else {
