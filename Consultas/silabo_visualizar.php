@@ -123,7 +123,7 @@ if ($result->num_rows > 0) {
             echo "{\large $programa con mencion en $mencion}\\\[0.3cm]\n";
         echo "\\end{center}\n";
 
-        echo "\\vspace{0.9cm}\n";
+        echo "\\vspace{0.10cm}\n";
         echo "\\begin{center}\n";
             echo "{\huge \bf SILABO}\\\[0.3cm]\n";
         echo "\\end{center}\n";
@@ -186,7 +186,7 @@ if ($result->num_rows > 0) {
                 echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
             echo "\\hline\n";
                 echo "Primera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana1 as $item_semana1) {
                     $item_semana1 = trim($item_semana1); 
@@ -196,7 +196,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana1\\\ \n";
             echo "\\hline \n";
                 echo "Segunda \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana2 as $item_semana2) {
                     $item_semana2 = trim($item_semana2); 
@@ -206,7 +206,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana2\\\ \n";
             echo "\\hline \n";
                 echo "Tercera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana3 as $item_semana3) {
                     $item_semana2 = trim($item_semana3); 
@@ -216,7 +216,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana3 \\\ \n";
             echo "\\hline \n";
                 echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana4 as $item_semana4) {
                     $item_semana4 = trim($item_semana4); 
@@ -237,7 +237,7 @@ if ($result->num_rows > 0) {
                 echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
             echo "\\hline\n";
                 echo "Primera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana5 as $item_semana5) {
                     $item_semana5 = trim($item_semana5); 
@@ -247,7 +247,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana5\\\ \n";
             echo "\\hline \n";
                 echo "Segunda \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana6 as $item_semana6) {
                     $item_semana6 = trim($item_semana6); 
@@ -257,7 +257,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana6\\\ \n";
             echo "\\hline \n";
                 echo "Tercera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana7 as $item_semana7) {
                     $item_semana7 = trim($item_semana7); 
@@ -267,7 +267,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana7 \\\ \n";
             echo "\\hline \n";
                 echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana8 as $item_semana8) {
                     $item_semana4 = trim($item_semana8); 
@@ -288,7 +288,7 @@ if ($result->num_rows > 0) {
                 echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
             echo "\\hline\n";
                 echo "Primera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana9 as $item_semana9) {
                     $item_semana9 = trim($item_semana9); 
@@ -298,7 +298,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana9\\\ \n";
             echo "\\hline \n";
                 echo "Segunda \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana10 as $item_semana10) {
                     $item_semana10 = trim($item_semana10); 
@@ -308,7 +308,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana10\\\ \n";
             echo "\\hline \n";
                 echo "Tercera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana11 as $item_semana11) {
                     $item_semana11 = trim($item_semana11); 
@@ -318,7 +318,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana11 \\\ \n";
             echo "\\hline \n";
                 echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana12 as $item_semana12) {
                     $item_semana12 = trim($item_semana12); 
@@ -339,7 +339,7 @@ if ($result->num_rows > 0) {
                 echo "\\textbf{Semana} & \\textbf{Temas} & \\textbf{Fecha} \\\ \n";
             echo "\\hline\n";
                 echo "Primera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana13 as $item_semana13) {
                     $item_semana13 = trim($item_semana13); 
@@ -349,7 +349,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana13\\\ \n";
             echo "\\hline \n";
                 echo "Segunda \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana14 as $item_semana14) {
                     $item_semana14 = trim($item_semana14); 
@@ -359,7 +359,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana14\\\ \n";
             echo "\\hline \n";
                 echo "Tercera \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana15 as $item_semana15) {
                     $item_semana15 = trim($item_semana15); 
@@ -369,7 +369,7 @@ if ($result->num_rows > 0) {
                 echo "\\end{minipage} & $fecha_semana15 \\\ \n";
             echo "\\hline \n";
                 echo "Cuarta \n";
-                echo "& \begin{minipage}[t]{9cm}\n";
+                echo "& \begin{minipage}[t]{10cm}\n";
                 echo "\\begin{itemize}\n";
                 foreach ($items_semana16 as $item_semana16) {
                     $item_semana16 = trim($item_semana16); 
@@ -380,38 +380,39 @@ if ($result->num_rows > 0) {
             echo "\\hline \n";
         echo "\\end{tabular}\n";
     echo "\\end{table}\n";
-    echo "\\section REFERENCIAS\n";
+    echo "{\huge \bf REFERENCIAS}\\\[0.3cm]\n";
     echo "\\begin{itemize}\n";
-    foreach ($items_referencias as $item_referencia) {
-        $item_referencia = trim($item_referencia);
-        
-        // Verifica si la cadena contiene una URL utilizando preg_match
-        if (preg_match("#\bhttps?://\S+\b#i", $item_referencia, $matches)) {
-            $url = $matches[0];
+        foreach ($items_referencias as $item_referencia) {
+            $item_referencia = trim($item_referencia);
             
-            // Agrega el prefijo "https://" si no está presente en la URL
-            if (!preg_match("#^https?://#i", $url)) {
-                $url = "https://" . $url;
+            // Verifica si la cadena contiene una URL utilizando preg_match
+            if (preg_match("#\bhttps?://\S+\b#i", $item_referencia, $matches)) {
+                $url = $matches[0];
+                
+                // Agrega el prefijo "https://" si no está presente en la URL
+                if (!preg_match("#^https?://#i", $url)) {
+                    $url = "https://" . $url;
+                }
+                
+                // Elimina la URL de la cadena original
+                $texto_sin_url = str_replace($url, '', $item_referencia);
+                
+                // Escapa los caracteres especiales de LaTeX en el texto sin la URL
+                $texto_sin_url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $texto_sin_url);
+                
+                // Escapa los caracteres especiales de LaTeX en la URL
+                $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
+                
+                // Imprime el ítem de referencia con el texto sin la URL
+                echo "\\item $texto_sin_url (\\url{{$url}})\n";
+            } else {
+                // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
+                echo "\\item $item_referencia\n";
             }
-            
-            // Elimina la URL de la cadena original
-            $texto_sin_url = str_replace($url, '', $item_referencia);
-            
-            // Escapa los caracteres especiales de LaTeX en el texto sin la URL
-            $texto_sin_url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $texto_sin_url);
-            
-            // Escapa los caracteres especiales de LaTeX en la URL
-            $url = preg_replace('/([#_$%&{}])/i', '\\\\$1', $url);
-            
-            // Imprime el ítem de referencia con el texto sin la URL
-            echo "\\item $texto_sin_url (\\url{{$url}})\n";
-        } else {
-            // Si no se encuentra una URL, simplemente imprime el ítem de referencia sin modificaciones
-            echo "\\item $item_referencia\n";
         }
-    }
-    
     echo "\\end{itemize}\n";
+
+    echo "{\huge \bf Recursos electrónicos:}\\\[0.3cm]\n";
     echo "\\end{document}\n";
     
 } else {
