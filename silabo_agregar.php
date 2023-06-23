@@ -35,7 +35,7 @@
   <div class="container-sm nb-3">
     <h1>Registro de Silabo</h1>
     <form method="post" action="Consultas/silabo_registrar.php">
-        <div class="nb-3">
+        <div class="form-group">
           <label class="form-label" for="facultad">Facultad:</label>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="facultad">
               <?php

@@ -31,35 +31,35 @@
     </header>
   </div>
   <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <form action="Consultas/consulta-silabo.php" class="p-4 shadow rounded bg-light">
-        <div class="row mb-3">
-          <div class="col">
-            <label for="selectAsignatura" class="form-label">Asignatura:</label>
-            <select name="selectAsignatura" id="selectAsignatura" class="form-select form-select-lg" aria-label=".form-select-lg example">
-              <?php
-                include 'Consultas/connection.php';
-                $consulta_asignatura = "SELECT A.Nombre FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura";
-                $ejecutar_consulta_asignatura = mysqli_query($conexion, $consulta_asignatura) or die(mysqli_error($conexion));
-              ?>
-              <?php foreach ($ejecutar_consulta_asignatura as $opciones_ejecutar_consulta_asignatura): ?>
-                <option value="<?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>">
-                  <?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>
-                </option>
-              <?php endforeach ?>
-            </select>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <form action="Consultas/consulta-silabo.php" class="p-4 shadow rounded bg-light">
+          <div class="row mb-3">
+            <div class="col">
+              <label for="selectAsignatura" class="form-label">Asignatura:</label>
+              <select name="selectAsignatura" id="selectAsignatura" class="form-select form-select-lg" aria-label=".form-select-lg example">
+                <?php
+                  include 'Consultas/connection.php';
+                  $consulta_asignatura = "SELECT A.Nombre FROM Silabo S JOIN Asignatura A ON S.IdAsignatura = A.IdAsignatura";
+                  $ejecutar_consulta_asignatura = mysqli_query($conexion, $consulta_asignatura) or die(mysqli_error($conexion));
+                ?>
+                <?php foreach ($ejecutar_consulta_asignatura as $opciones_ejecutar_consulta_asignatura): ?>
+                  <option value="<?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>">
+                    <?php echo $opciones_ejecutar_consulta_asignatura['Nombre']; ?>
+                  </option>
+                <?php endforeach ?>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button type="submit" class="btn btn-primary w-100" style="background-color: #0a587c">Consultar</button>
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary w-100" style="background-color: #0a587c">Consultar</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>

@@ -6,10 +6,10 @@ $id=$_GET['id'];
 $sql = "SELECT * FROM Silabo WHERE IdSilabo = '".$id."'";
 $result = $conexion->query($sql);
 
-$sql_datos_asignatura = "SELECT * FROM Silabo S JOIN Asignatura A ON A.IdAsignatura = '".$id."'";
+$sql_datos_asignatura = "SELECT * FROM Silabo S JOIN Asignatura A ON A.IdAsignatura = S.IdAsignatura WHERE S.IdSilabo = '".$id."'";
 $resultado_sql_datos_asignatura = $conexion->query($sql_datos_asignatura);
 
-$sql_dato_docente = "SELECT * FROM Silabo S JOIN Docente D ON D.IdDocente = '".$id."'";
+$sql_dato_docente = "SELECT * FROM Silabo S JOIN Docente D ON D.IdDocente = S.IdDocente  WHERE S.IdSilabo = '".$id."'";
 $resultado_sql_dato_docente = $conexion->query($sql_dato_docente);
 
 if ($result->num_rows > 0) {

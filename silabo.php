@@ -40,7 +40,7 @@
       <input type="submit" value="Agregar Nuevo Silabo" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" style="background-color: #0a587c"/>
     </a>
   </div>
-  <div class="container-sm nb-3 table-responsive">
+  <div class="container-sm mt-3 table-responsive">
     <table id="example" class="table table-striped" style="width:100%">
       <thead>
         <tr>
