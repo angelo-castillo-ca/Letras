@@ -521,17 +521,24 @@ if ($result->num_rows > 0) {
 } else {
     echo "No se encontraron resultados.";
 }
-$archivo_latex = fopen("../Documentos/codigo_latex_silabo.tex", "w");
+$archivo_latex = fopen("../Documentos/".$nom_asig.".tex", "w");
 fwrite($archivo_latex, $codio_latex);
 fclose($archivo_latex);
-$conexion->close();
 
-$archivo_pdf = '../Documentos/build/codigo_latex_silabo.pdf';
+$comando = "pdflatex -output-directory='../Documentos/' '../Documentos/{$nom_asig}.tex'";
+exec($comando);
+
+echo $comando;
+
+$archivo_pdf = '../Documentos/build/'.$nom_asig.'.pdf';
 header('Content-type: application/pdf');
 header('Content-Disposition: inline; filename="' . $archivo_pdf . '"');
 header('Content-Transfer-Encoding: binary');
 header('Accept-Ranges: bytes');
 
 @readfile($archivo_pdf);
+
+$conexion->close();
+
 
 ?>
